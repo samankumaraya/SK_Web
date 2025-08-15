@@ -5,9 +5,9 @@ const phases = [
   { label: "About", color: "#4F80FF", path: "/about" },
   { label: "Projects", color: "#F2C94C", path: "/projects" },
   { label: "Skills", color: "#F2994A", path: "/skills" },
-  { label: "Experience", color: "#EB5757", path: "/Experience" },
-  { label: "Education", color: "#6FCF97", path: "/Education" },
-  { label: "Contact", color: "#27AE60", path: "/Contact" },
+  { label: "Experience", color: "#EB5757", path: "/experience" },
+  { label: "Education", color: "#6FCF97", path: "/education" },
+  { label: "Contact", color: "#27AE60", path: "/contact" },
 ];
 
 const radius = 190;
@@ -25,27 +25,33 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen h-screen bg-[#2b2b2b] flex items-center justify-center overflow-hidden">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl px-4 md:px-12">
-       
-        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4 md:w-1/3">
-          <img
-            src="/your-profile.png" 
-            alt="Saman Kumara"
-            className="w-48 h-48 rounded-full object-cover border-4 border-sky-400"
-          />
-          <h1 className="text-3xl md:text-4xl font-bold text-white">
-            Hi, I’m <span className="text-sky-400">Saman Kumara</span>
-          </h1>
-          <p className="text-md md:text-lg text-gray-300">
-            Software Engineer | Full-Stack Developer | QA Engineer
-          </p>
-        </div>
+    <div className="w-screen h-screen bg-white/50 flex items-center justify-center overflow-hidden px-4">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl gap-8">
+        
+        <div className="flex flex-col items-center text-center gap-6 md:w-2/5">
+  <img
+  src="/your-profile.png"
+  alt="Saman Kumara"
+  className="w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] object-contain"
+/>
 
-      
-        <div className="relative md:w-1/2 mt-10 md:mt-0">
-          <svg width="710" height="710" viewBox="60 0 510 510">
+  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
+    Hi, I’m <span className="text-sky-400">Saman Kumara</span>
+  </h1>
+  <p className="text-base sm:text-lg md:text-xl text-gray-700">
+    Software Engineer | Full-Stack Developer | QA Engineer
+  </p>
+</div>
 
+
+
+
+        {/* Wheel Section */}
+        <div className="relative flex flex-col items-center md:items-start md:w-1/2">
+          <svg
+            viewBox="60 60 400 400"
+            className="w-[90vw] max-w-[500px] h-auto"
+          >
             {phases.map((phase, index) => {
               const startAngle = index * sliceAngle - Math.PI / 2;
               const endAngle = (index + 1) * sliceAngle - Math.PI / 2;
@@ -65,8 +71,17 @@ export default function HomePage() {
               const labelY = center + (radius / 1.5) * Math.sin(midAngle);
 
               return (
-                <g key={index} onClick={() => navigate(phase.path)} className="cursor-pointer">
-                  <path d={path} fill={phase.color} stroke="#2b2b2b" strokeWidth="2" />
+                <g
+                  key={index}
+                  onClick={() => navigate(phase.path)}
+                  className="cursor-pointer hover:opacity-80 transition"
+                >
+                  <path
+                    d={path}
+                    fill={phase.color}
+                    stroke="#2b2b2b"
+                    strokeWidth="2"
+                  />
                   <text
                     x={labelX}
                     y={labelY}
@@ -95,13 +110,13 @@ export default function HomePage() {
             </text>
           </svg>
 
-         
-          <div className="absolute top-1/2 -right-16 transform -translate-y-1/2 flex flex-col gap-3">
+          {/* Social Links */}
+          <div className="flex md:flex-col gap-3 mt-4 md:mt-0 md:absolute md:top-1/2 md:-right-16 md:-translate-y-1/2">
             {[
-              { icon: "linkedin", url: "https://linkedin.com" },
-              { icon: "whatsapp", url: "https://wa.me/xxxxxxxx" },
-              { icon: "facebook", url: "https://facebook.com" },
-              { icon: "instagram", url: "https://instagram.com" },
+              { icon: "linkedin", url: "https://www.linkedin.com/in/s-kumara-80304a229/" },
+              { icon: "whatsapp", url: "https://wa.me/+94766199583" },
+              { icon: "facebook", url: "https://web.facebook.com/saman.kumara.777029" },
+              { icon: "instagram", url: "https://www.instagram.com/kumara9476/" },
               { icon: "youtube", url: "https://youtube.com" },
               { icon: "twitter", url: "https://twitter.com" },
             ].map((item, idx) => (
@@ -113,7 +128,7 @@ export default function HomePage() {
                 className="hover:scale-110 transition-transform"
               >
                 <img
-                  src={`/icons/${item.icon}.png`} 
+                  src={`/icons/${item.icon}.png`}
                   alt={item.icon}
                   className="w-6 h-6"
                 />
