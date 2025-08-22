@@ -7,6 +7,7 @@ import cors from "cors";
 
 
 import educationRoutes from "./routes/educationRoutes.js";
+import experienceRoutes from "./routes/experienceRoutes.js";
 
 const app = express();
 
@@ -35,7 +36,7 @@ mongoose.connect(uri, {
 
 
 app.use("/api/education", educationRoutes);
-
+app.use("/api/experience", experienceRoutes);
 
 app.get("/", (req, res) => {
   res.send("🚀 Backend API is running...");

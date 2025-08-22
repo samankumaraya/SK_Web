@@ -1,0 +1,219 @@
+import React, { useState } from "react";
+import axios from "axios";
+
+const ExperienceForm = () => {
+  const [formData, setFormData] = useState({
+    title: "",
+    employmentType: "",
+    company: "",
+    isCurrent: false,
+    startDate: "",
+    endDate: "",
+    location: "",
+    locationType: "",
+    description: "",
+    jobSource: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      
+      const res = await axios.post("http://localhost:5000/api/experience", formData);
+      alert("✅ Experience Saved Successfully!");
+
+      // Clear form
+      setFormData({
+        title: "",
+        employmentType: "",
+        company: "",
+        isCurrent: false,
+        startDate: "",
+        endDate: "",
+        location: "",
+        locationType: "",
+        description: "",
+        jobSource: "",
+      });
+
+      console.log("Saved Experience:", res.data);
+    } catch (err) {
+      console.error("❌ Error saving experience:", err);
+      alert("Error saving experience");
+    }
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-2xl space-y-4"
+    >
+      <h2 className="text-xl font-bold mb-4">Add Work Experience</h2>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Job Title</label>
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+          placeholder="Software Engineer"
+          required
+        />
+      </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Employment Type</label>
+        <select
+          name="employmentType"
+          value={formData.employmentType}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+          required
+        >
+          <option value="">Select</option>
+          <option>Full-Time</option>
+          <option>Part Time</option>
+          <option>Self-employed</option>
+          <option>Freelance</option>
+          <option>Contract</option>
+          <option>Internship</option>
+        </select>
+      </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Company</label>
+        <input
+          type="text"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+          placeholder="ABC Pvt Ltd"
+          required
+        />
+      </div>
+
+      
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          name="isCurrent"
+          checked={formData.isCurrent}
+          onChange={handleChange}
+        />
+        <label>I am currently working in this role</label>
+      </div>
+
+      
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium">Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            className="w-full mt-1 border rounded p-2"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">End Date</label>
+          <input
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            className="w-full mt-1 border rounded p-2"
+            disabled={formData.isCurrent}
+          />
+        </div>
+      </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Location</label>
+        <input
+          type="text"
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+          placeholder="Colombo, Sri Lanka"
+        />
+      </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Location Type</label>
+        <select
+          name="locationType"
+          value={formData.locationType}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+        >
+          <option value="">Select</option>
+          <option>On-Site</option>
+          <option>Hybrid</option>
+          <option>Remote</option>
+        </select>
+      </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium">Description</label>
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+          rows="4"
+          placeholder="Describe your role..."
+        />
+      </div>
+
+     
+      <div>
+        <label className="block text-sm font-medium">Where did you find this job?</label>
+        <select
+          name="jobSource"
+          value={formData.jobSource}
+          onChange={handleChange}
+          className="w-full mt-1 border rounded p-2"
+        >
+          <option value="">Select</option>
+          <option>LinkedIn</option>
+          <option>Company Website</option>
+          <option>Other Job Sites</option>
+          <option>Referral</option>
+          <option>Contacted by Recruiter</option>
+          <option>Staffing agency</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+     
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+      >
+        Save Experience
+      </button>
+    </form>
+  );
+};
+
+export default ExperienceForm;
