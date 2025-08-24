@@ -42,7 +42,7 @@ mongoose.connect(uri, {
 
 app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
-app.use("/api/skills", skillRoutes); // ✅ new route
+app.use("/api/skills", skillRoutes); 
 
 
 app.get("/", (req, res) => {
