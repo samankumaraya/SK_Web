@@ -5,13 +5,13 @@ import Skill from "../models/Skill.js";
 
 const router = express.Router();
 
-// Multer storage config
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/images"); // save inside uploads/images
+    cb(null, "uploads/images"); 
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // unique filename
+    cb(null, Date.now() + path.extname(file.originalname)); 
   },
 });
 

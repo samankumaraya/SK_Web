@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ Static folder for uploaded images
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -39,12 +39,12 @@ mongoose.connect(uri, {
     process.exit(1);
   });
 
-// Routes
+
 app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/skills", skillRoutes); // ✅ new route
 
-// Default route
+
 app.get("/", (req, res) => {
   res.send("🚀 Backend API is running...");
 });
