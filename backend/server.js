@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 
 import educationRoutes from "./routes/educationRoutes.js";
 import experienceRoutes from "./routes/experienceRoutes.js";
-import skillRoutes from "./routes/skillRoutes.js"; // ✅ new import
+import skillRoutes from "./routes/skillRoutes.js"; 
 
 const app = express();
 
