@@ -9,9 +9,11 @@ import { fileURLToPath } from "url";
 
 import educationRoutes from "./routes/educationRoutes.js";
 import experienceRoutes from "./routes/experienceRoutes.js";
-import skillRoutes from "./routes/skillRoutes.js"; 
+import skillRoutes from "./routes/skillRoutes.js";
+import projectRoutes from "./routes/projectRoutes.js";
 
 const app = express();
+
 
 app.use(cors());
 app.use(express.json());
@@ -19,17 +21,20 @@ app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-const PORT = process.env.PORT || 5000;
-const uri = process.env.MONGO_URI;
 
-if (!uri) {
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
   console.error("❌ MONGO_URI is not defined in .env");
   process.exit(1);
 }
 
-mongoose.connect(uri, {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -42,11 +47,19 @@ mongoose.connect(uri, {
 
 app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
-app.use("/api/skills", skillRoutes); 
+app.use("/api/skills", skillRoutes);
+app.use("/api/projects", projectRoutes); // Project routes
 
 
 app.get("/", (req, res) => {
   res.send("🚀 Backend API is running...");
 });
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Server Error" });
+});
+
 
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
