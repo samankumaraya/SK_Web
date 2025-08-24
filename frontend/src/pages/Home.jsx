@@ -25,7 +25,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen h-screen bg-white/50 flex items-center justify-center overflow-hidden px-4">
+    <div className="w-screen h-screen bg-white/40 flex items-center justify-center overflow-hidden px-4">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl gap-8">
         
         <div className="flex flex-col items-center text-center gap-6 md:w-2/5">
