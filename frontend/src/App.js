@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import EducationForm from "./pages/EducationForm";
 import ExperienceForm from "./pages/ExperienceForm";
 import SkillForm from "./pages/SkillForm";
+import AddProjectForm from "./pages/AddProjectForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
          <Route path="/education" element={<EducationForm />} />
           <Route path="/experience" element={<ExperienceForm />} />
           <Route path="/skills" element={<SkillForm />} />
+          <Route path="/project" element={<AddProjectForm />} />
       </Routes>
     </Router>
   );
