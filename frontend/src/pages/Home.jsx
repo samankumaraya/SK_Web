@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const phases = [
   { label: "About", color: "#4F80FF", path: "/about" },
-  { label: "Projects", color: "#F2C94C", path: "/projects" },
+  { label: "Projects", color: "#F2C94C", path: "/project" },
   { label: "Skills", color: "#F2994A", path: "/skills" },
   { label: "Experience", color: "#EB5757", path: "/experience" },
   { label: "Education", color: "#6FCF97", path: "/education" },
