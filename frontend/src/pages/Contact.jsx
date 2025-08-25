@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:5000/api/contact", formData);
+      if (res.data.success) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error) {
+      setStatus("❌ Failed to send message. Try again later.");
+    }
+  };
+
   return (
     <section className="py-12 bg-gray-50" id="contact">
       <div className="max-w-6xl mx-auto px-4">
@@ -18,28 +47,28 @@ const Contact = () => {
           <div className="bg-white p-6 rounded-2xl shadow">
             <div className="mb-6">
               <h3 className="flex items-center text-lg font-semibold text-gray-700">
-                <span className="text-teal-500 mr-2">📍</span> Address (Permanent)
+                <span className="text-blue-600 mr-2">📍</span> Address (Permanent)
               </h3>
               <p className="text-gray-600">Dimbulana, Welimada</p>
             </div>
 
-             <div className="mb-6">
+            <div className="mb-6">
               <h3 className="flex items-center text-lg font-semibold text-gray-700">
-                <span className="text-teal-500 mr-2">📍</span> Address (Current)
+                <span className="text-blue-600 mr-2">📍</span> Address (Current)
               </h3>
               <p className="text-gray-600">Makola, Kiribathgoda</p>
             </div>
 
             <div className="mb-6">
               <h3 className="flex items-center text-lg font-semibold text-gray-700">
-                <span className="text-teal-500 mr-2">📞</span> Call Us
+                <span className="text-blue-600 mr-2">📞</span> Call Me
               </h3>
               <p className="text-gray-600">+94 76 6199 583</p>
             </div>
 
             <div className="mb-6">
               <h3 className="flex items-center text-lg font-semibold text-gray-700">
-                <span className="text-teal-500 mr-2">✉️</span> Email Us
+                <span className="text-blue-600 mr-2">✉️</span> Email Me
               </h3>
               <p className="text-gray-600">samankumaraya1@gmail.com</p>
             </div>
@@ -56,38 +85,56 @@ const Contact = () => {
             </div>
           </div>
 
-          
+       
           <div className="bg-white p-6 rounded-2xl shadow">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  required
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
-                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  required
                 />
               </div>
               <input
                 type="text"
+                name="subject"
                 placeholder="Subject"
-                className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
               />
               <textarea
+                name="message"
                 placeholder="Message"
                 rows="6"
-                className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                required
               ></textarea>
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-teal-600 transition"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
               >
                 Send Message
               </button>
             </form>
+
+           
+            {status && <p className="mt-4 text-center text-gray-600">{status}</p>}
           </div>
         </div>
       </div>
