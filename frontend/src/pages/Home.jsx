@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const phases = [
   { label: "About", color: "#4F80FF", path: "/about" },
-  { label: "Projects", color: "#F2C94C", path: "/projects" },
+  { label: "Projects", color: "#F2C94C", path: "/project" },
   { label: "Skills", color: "#F2994A", path: "/skills" },
   { label: "Experience", color: "#EB5757", path: "/experience" },
   { label: "Education", color: "#6FCF97", path: "/education" },
@@ -25,7 +25,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen h-screen bg-white/50 flex items-center justify-center overflow-hidden px-4">
+    <div className="w-screen h-screen bg-white/40 flex items-center justify-center overflow-hidden px-4">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl gap-8">
         
         <div className="flex flex-col items-center text-center gap-6 md:w-2/5">
