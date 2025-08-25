@@ -5,6 +5,7 @@ import EducationForm from "./pages/EducationForm";
 import ExperienceForm from "./pages/ExperienceForm";
 import SkillForm from "./pages/SkillForm";
 import AddProjectForm from "./pages/AddProjectForm";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/experience" element={<ExperienceForm />} />
           <Route path="/skills" element={<SkillForm />} />
           <Route path="/project" element={<AddProjectForm />} />
+          <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
