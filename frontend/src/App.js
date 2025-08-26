@@ -6,6 +6,7 @@ import ExperienceForm from "./pages/ExperienceForm";
 import SkillForm from "./pages/SkillForm";
 import AddProjectForm from "./pages/AddProjectForm";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/skills" element={<SkillForm />} />
           <Route path="/project" element={<AddProjectForm />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
