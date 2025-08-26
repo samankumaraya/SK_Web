@@ -7,10 +7,12 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
+
 import educationRoutes from "./routes/educationRoutes.js";
 import experienceRoutes from "./routes/experienceRoutes.js";
 import skillRoutes from "./routes/skillRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js"; // ✅ New Contact Route
 
 const app = express();
 
@@ -21,8 +23,6 @@ app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
@@ -33,6 +33,7 @@ if (!MONGO_URI) {
   console.error("❌ MONGO_URI is not defined in .env");
   process.exit(1);
 }
+
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
@@ -48,7 +49,8 @@ mongoose.connect(MONGO_URI, {
 app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/skills", skillRoutes);
-app.use("/api/projects", projectRoutes); // Project routes
+app.use("/api/projects", projectRoutes);
+app.use("/api/contact", contactRoutes); // ✅ Add contact API
 
 
 app.get("/", (req, res) => {
