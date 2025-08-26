@@ -7,6 +7,7 @@ import SkillForm from "./pages/SkillForm";
 import AddProjectForm from "./pages/AddProjectForm";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import ViewProjects from "./pages/ViewProjects";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/project" element={<AddProjectForm />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/vProjects" element={<ViewProjects />} />
       </Routes>
     </Router>
   );
