@@ -31,12 +31,12 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-50" id="contact">
+    <section className="py-12 bg-gray-50" id="contact" style={{ backgroundImage: "url('/images/Background.jpg')" }}>
       <div className="max-w-6xl mx-auto px-4">
        
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">Contact</h2>
-          <p className="text-gray-800 mt-5">
+          <h2 className="text-6xl text-green-500 font-bold">Contact</h2>
+          <p className="text-yellow-500 mt-5">
             I’m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
         </div>

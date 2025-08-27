@@ -23,11 +23,21 @@ const ViewProjects = () => {
   if (loading) return <p>Loading projects...</p>;
 
   return (
+    <section
+  style={{
+    backgroundImage: "url('/images/Background.jpg')",
+    backgroundSize: "cover",        
+    backgroundPosition: "center",    
+    backgroundRepeat: "no-repeat",  
+    minHeight: "100vh",              
+    width: "100%",                   
+  }}
+>
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">All Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div key={project._id} className="border rounded-lg p-4 shadow hover:shadow-lg transition">
+          <div key={project._id} className="border rounded-lg p-4 bg-white shadow hover:shadow-lg transition">
             <h2 className="text-xl font-semibold">{project.title}</h2>
             <p className="text-gray-600">{project.shortDescription}</p>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -82,7 +92,7 @@ const ViewProjects = () => {
           <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full p-6 relative overflow-y-auto max-h-[90vh]">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 font-bold text-2xl"
+              className="absolute top-4 right-4  text-gray-600 hover:text-gray-900 font-bold text-2xl"
             >
               &times;
             </button>
@@ -124,7 +134,7 @@ const ViewProjects = () => {
           </div>
         </div>
       )}
-    </div>
+    </div></section>
   );
 };
 

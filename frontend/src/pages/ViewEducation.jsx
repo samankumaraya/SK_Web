@@ -30,13 +30,23 @@ const ViewEducation = () => {
   };
 
   return (
+    <section
+  style={{
+    backgroundImage: "url('/images/Background.jpg')",
+    backgroundSize: "cover",        
+    backgroundPosition: "center",    
+    backgroundRepeat: "no-repeat",  
+    minHeight: "100vh",              
+    width: "100%",                   
+  }}
+>
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">Education</h1>
+      <h1 className="text-5xl text-green-600 font-bold mb-4 text-center">Education</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {educations.map((edu) => (
           <div
             key={edu._id}
-            className="border p-4 rounded shadow flex justify-between items-center"
+            className="border p-4 bg-white rounded shadow flex justify-between items-center"
           >
             <div>
               <h2 className="font-semibold">{edu.school}</h2>
@@ -88,6 +98,7 @@ const ViewEducation = () => {
         </div>
       )}
     </div>
+    </section>
   );
 };
 
