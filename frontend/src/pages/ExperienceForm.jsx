@@ -29,7 +29,7 @@ const ExperienceForm = () => {
       const res = await axios.post("http://localhost:5000/api/experience", formData);
       alert("✅ Experience Saved Successfully!");
 
-      // Clear form
+ 
       setFormData({
         title: "",
         employmentType: "",

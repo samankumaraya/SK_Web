@@ -35,7 +35,7 @@ const About = () => {
     >
       <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-16">
-          {/* Section Header */}
+          
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-gray-800">
               About Me
@@ -46,9 +46,9 @@ const About = () => {
             </p>
           </div>
 
-          {/* Main Content */}
+         
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            {/* Profile Image */}
+            
             <div className="flex justify-center md:justify-start">
               <img
                 src="/your-profile.png"
@@ -57,7 +57,7 @@ const About = () => {
               />
             </div>
 
-            {/* About Info */}
+            
             <div className="space-y-6">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800">
                 Full Stack Software Engineer
@@ -66,7 +66,6 @@ const About = () => {
                 Turning ideas into efficient and user-friendly digital solutions. Continuously learning and exploring new technologies.
               </p>
 
-              {/* Info Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-gray-800 text-sm sm:text-base md:text-base">
                 {infoItems.map((item, idx) => (
                   <p
