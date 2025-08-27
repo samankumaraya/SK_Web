@@ -10,6 +10,7 @@ import About from "./pages/About";
 import ViewProjects from "./pages/ViewProjects";
 import ViewEducation from "./pages/ViewEducation";
 import ViewExperience from "./pages/ViewExperiences";
+import ViewSkills from "./pages/ViewSkills";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/vprojects" element={<ViewProjects />} />
           <Route path="/veducation" element={<ViewEducation />} />
            <Route path="/vexperience" element={<ViewExperience />} />
+            <Route path="/vskills" element={<ViewSkills/>} />
       </Routes>
     </Router>
   );

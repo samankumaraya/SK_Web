@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const phases = [
   { label: "About", color: "#4F80FF", path: "/about" },
   { label: "Projects", color: "#F2C94C", path: "/vprojects" },
-  { label: "Skills", color: "#F2994A", path: "/skills" },
+  { label: "Skills", color: "#F2994A", path: "/vskills" },
   { label: "Experience", color: "#EB5757", path: "/vexperience" },
   { label: "Education", color: "#6FCF97", path: "/veducation" },
   { label: "Contact", color: "#27AE60", path: "/contact" },
@@ -46,7 +46,7 @@ export default function HomePage() {
 
 
 
-        {/* Wheel Section */}
+        
         <div className="relative flex flex-col items-center md:items-start md:w-1/2">
           <svg
             viewBox="60 60 400 400"
@@ -110,7 +110,7 @@ export default function HomePage() {
             </text>
           </svg>
 
-          {/* Social Links */}
+         
           <div className="flex md:flex-col gap-3 mt-4 md:mt-0 md:absolute md:top-1/2 md:-right-16 md:-translate-y-1/2">
             {[
               { icon: "linkedin", url: "https://www.linkedin.com/in/s-kumara-80304a229/" },

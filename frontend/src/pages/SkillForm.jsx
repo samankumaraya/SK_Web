@@ -45,7 +45,7 @@ const SkillForm = () => {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Skill Name */}
+       
         <div>
           <label className="block text-gray-700 font-medium mb-1">Skill</label>
           <input
@@ -59,8 +59,7 @@ const SkillForm = () => {
           />
         </div>
 
-        {/* Percentage */}
-        {/* Percentage */}
+        
 <div>
   <label className="block text-gray-700 font-medium mb-1">Percentage</label>
   <div className="flex items-center space-x-3">
@@ -81,7 +80,7 @@ const SkillForm = () => {
 </div>
 
 
-        {/* Upload Image */}
+        
         <div>
           <label className="block text-gray-700 font-medium mb-1">Upload Image</label>
           <input
@@ -94,7 +93,7 @@ const SkillForm = () => {
           />
         </div>
 
-        {/* Years of Experience */}
+        
         <div>
           <label className="block text-gray-700 font-medium mb-1">
             Years of Experience
@@ -110,7 +109,7 @@ const SkillForm = () => {
           />
         </div>
 
-        {/* Save Button */}
+        
         <div className="text-right">
           <button
             type="submit"
