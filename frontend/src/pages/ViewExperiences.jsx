@@ -29,8 +29,19 @@ const ViewExperiences = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-center mb-8">All Experiences</h2>
+    <section
+  style={{
+    backgroundImage: "url('/images/Background.jpg')",
+    backgroundSize: "cover",        
+    backgroundPosition: "center",    
+    backgroundRepeat: "no-repeat",  
+    minHeight: "100vh",              
+    width: "100%",                   
+  }}
+>
+ 
+    <div className="max-w-5xl mx-auto px-4 py-8 ">
+      <h2 className="text-5xl font-bold text-center mb-8 text-green-600 ">All Experiences</h2>
 
       {experiences.length === 0 ? (
         <p className="text-center text-gray-500">No experiences found.</p>
@@ -106,6 +117,7 @@ const ViewExperiences = () => {
         </div>
       )}
     </div>
+    </section>
   );
 };
 

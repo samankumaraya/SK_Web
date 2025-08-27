@@ -12,93 +12,82 @@ const About = () => {
 
   const age = calculateAge(birthday);
 
-  return (
-    <section id="about" className="min-h-screen flex items-center bg-white py-10 md:py-16">
-      <div className="max-w-5xl mx-auto px-4 w-full">
-        
-       
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-3">About</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-base md:text-lg text-gray-600">
-            A dedicated software engineer passionate about building impactful digital solutions.
-          </p>
-        </div>
+  const infoItems = [
+    { label: "Birthday", value: "1 August 2000" },
+    { label: "Age", value: age },
+    { label: "Website", value: "www.example.com", link: "http://www.example.com" },
+    { label: "Degree", value: "Bachelor" },
+    { label: "Phone", value: "+94 76 6199 583" },
+    { label: "Email", value: "samankumaraya1@gmail.com", link: "mailto:samankumaraya1@gmail.com" },
+    { label: "City", value: "Kiribathgoda, Sri Lanka" },
+    { label: "Freelance", value: "Available" },
+  ];
 
-       
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          
-         
-          <div className="flex justify-center md:justify-start">
-            <img
-              src="/your-profile.png" 
-              alt="Profile"
-              className="rounded-lg shadow-lg w-56 md:w-80 object-cover"
-            />
+  return (
+    <section
+      id="about"
+      className="flex flex-col items-center py-12 md:py-24 bg-gray-100"
+      style={{
+        backgroundImage: "url('/images/Background.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-16">
+          {/* Section Header */}
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-gray-800">
+              About Me
+            </h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+              A dedicated software engineer passionate about building impactful digital solutions and delivering user-friendly experiences.
+            </p>
           </div>
 
-          
-          <div>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-3">
-              Full Stack Software Engineer
-            </h3>
-            <p className="text-base md:text-lg text-gray-700 mb-6 italic">
-              Turning ideas into efficient and user-friendly digital solutions. Continuously learning and exploring new technologies.
-            </p>
+          {/* Main Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            {/* Profile Image */}
+            <div className="flex justify-center md:justify-start">
+              <img
+                src="/your-profile.png"
+                alt="Profile"
+                className="rounded-xl shadow-xl w-48 sm:w-64 md:w-80 object-cover border-4 border-gray-200"
+              />
+            </div>
 
-           
-           <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-sm md:text-base text-gray-800">
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Birthday:</span> 1 August 2000
-  </p>
+            {/* About Info */}
+            <div className="space-y-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800">
+                Full Stack Software Engineer
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-gray-700 italic">
+                Turning ideas into efficient and user-friendly digital solutions. Continuously learning and exploring new technologies.
+              </p>
 
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Age:</span> {age}
-  </p>
+              {/* Info Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-gray-800 text-sm sm:text-base md:text-base">
+                {infoItems.map((item, idx) => (
+                  <p
+                    key={idx}
+                    className="flex flex-wrap items-center gap-2 bg-gray-50 rounded-lg px-3 sm:px-4 py-2 hover:bg-gray-100 transition break-words"
+                  >
+                    <img src={checkIcon} alt="check" className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
+                    <span className="font-semibold flex-shrink-0">{item.label}:</span>
+                    {item.link ? (
+                      <a href={item.link} className="text-blue-600 hover:underline break-all">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span className="break-all">{item.value}</span>
+                    )}
+                  </p>
+                ))}
+              </div>
 
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Website:</span>{" "}
-    <a href="http://www.example.com" className="text-blue-600 hover:underline">
-      www.example.com
-    </a>
-  </p>
-
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Degree:</span> Bachelor
-  </p>
-
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Phone:</span> +94 76 6199 583
-  </p>
-
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Email:</span>{" "}
-    <a href="mailto:samankumaraya1@gmail.com" className="text-blue-600 hover:underline">
-      samankumaraya1@gmail.com
-    </a>
-  </p>
-
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">City:</span> Kiribathgoda, Sri Lanka
-  </p>
-
-  <p className="flex items-center gap-2">
-    <img src={checkIcon} alt="check" className="w-4 h-4" />
-    <span className="font-semibold">Freelance:</span> Available
-  </p>
-</div>
-
-
-            <p className="mt-6 text-base md:text-lg text-gray-700">
-              I am a passionate software engineer who loves turning ideas into efficient and user-friendly digital solutions. I specialize in Full Stack, constantly learning and exploring new technologies to build impactful software.
-            </p>
+              
+            </div>
           </div>
         </div>
       </div>
