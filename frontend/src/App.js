@@ -11,11 +11,12 @@ import ViewProjects from "./pages/ViewProjects";
 import ViewEducation from "./pages/ViewEducation";
 import ViewExperience from "./pages/ViewExperiences";
 import ViewSkills from "./pages/ViewSkills";
+import AdminHome from "./Admin/AdminHome";
 
 function App() {
   return (
     <Router>
-      {/* All routes must be inside <Router> */}
+     
       <Routes>
         <Route path="/" element={<Home />} />
          <Route path="/education" element={<EducationForm />} />
@@ -27,7 +28,7 @@ function App() {
           <Route path="/vprojects" element={<ViewProjects />} />
           <Route path="/veducation" element={<ViewEducation />} />
            <Route path="/vexperience" element={<ViewExperience />} />
-            <Route path="/vskills" element={<ViewSkills/>} />
+            <Route path="/admin" element={<AdminHome/>} />
       </Routes>
     </Router>
   );
