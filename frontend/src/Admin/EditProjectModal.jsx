@@ -61,136 +61,208 @@ const EditProjectModal = ({ project, onClose, onUpdated }) => {
     }
   };
 
+  if (!project) return null;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
       <div className="bg-white p-6 rounded-lg w-full max-w-4xl max-h-screen overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">Edit Project</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            name="title"
-            value={formData.title || ""}
-            onChange={handleChange}
-            placeholder="Project Name"
-            className="p-2 border rounded"
-            required
-          />
-          <input
-            type="text"
-            name="shortDescription"
-            value={formData.shortDescription || ""}
-            onChange={handleChange}
-            placeholder="Short Description"
-            className="p-2 border rounded"
-            required
-          />
-          <textarea
-            name="detailedDescription"
-            value={formData.detailedDescription || ""}
-            onChange={handleChange}
-            placeholder="Detailed Description"
-            className="col-span-2 p-2 border rounded"
-          />
-          <input
-            type="text"
-            value={(formData.technologies || []).join(", ")}
-            onChange={(e) => handleArrayChange(e, "technologies")}
-            placeholder="Technologies (comma separated)"
-            className="p-2 border rounded"
-          />
-          <input
-            type="text"
-            name="projectType"
-            value={formData.projectType || ""}
-            onChange={handleChange}
-            placeholder="Project Type"
-            className="p-2 border rounded"
-          />
-          <input
-            type="file"
-            multiple
-            onChange={handleImageChange}
-            className="col-span-2"
-          />
-          <input
-            type="text"
-            name="videoLink"
-            value={formData.videoLink || ""}
-            onChange={handleChange}
-            placeholder="Video Demo Link"
-            className="p-2 border rounded"
-          />
-          <input
-            type="text"
-            name="repoLink"
-            value={formData.repoLink || ""}
-            onChange={handleChange}
-            placeholder="Repository Link"
-            className="p-2 border rounded"
-          />
-          <input
-            type="text"
-            name="liveLink"
-            value={formData.liveLink || ""}
-            onChange={handleChange}
-            placeholder="Live Demo Link"
-            className="p-2 border rounded"
-          />
-          <input
-            type="date"
-            name="startDate"
-            value={formData.startDate?.split("T")[0] || ""}
-            onChange={handleChange}
-            className="p-2 border rounded"
-          />
-          <input
-            type="date"
-            name="endDate"
-            value={formData.endDate?.split("T")[0] || ""}
-            onChange={handleChange}
-            className="p-2 border rounded"
-          />
-          <input
-            type="text"
-            name="category"
-            value={formData.category || ""}
-            onChange={handleChange}
-            placeholder="Category"
-            className="p-2 border rounded"
-          />
-          <input
-            type="text"
-            value={(formData.skills || []).join(", ")}
-            onChange={(e) => handleArrayChange(e, "skills")}
-            placeholder="Skills (comma separated)"
-            className="p-2 border rounded"
-          />
-          <select
-            name="status"
-            value={formData.status || "Planned"}
-            onChange={handleChange}
-            className="p-2 border rounded"
-          >
-            <option value="Completed">Completed</option>
-            <option value="In-progress">In-progress</option>
-            <option value="Planned">Planned</option>
-          </select>
-          <input
-            type="text"
-            name="role"
-            value={formData.role || ""}
-            onChange={handleChange}
-            placeholder="Role"
-            className="p-2 border rounded"
-          />
-          <input
-            type="number"
-            name="teamSize"
-            value={formData.teamSize || ""}
-            onChange={handleChange}
-            placeholder="Team Size"
-            className="p-2 border rounded"
-          />
+          
+          
+          <div>
+            <label className="block font-semibold mb-1">Title</label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+              required
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Short Description</label>
+            <input
+              type="text"
+              name="shortDescription"
+              value={formData.shortDescription || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+              required
+            />
+          </div>
+
+          
+          <div className="col-span-2">
+            <label className="block font-semibold mb-1">Detailed Description</label>
+            <textarea
+              name="detailedDescription"
+              value={formData.detailedDescription || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+         
+          <div>
+            <label className="block font-semibold mb-1">Technologies (comma separated)</label>
+            <input
+              type="text"
+              value={(formData.technologies || []).join(", ")}
+              onChange={(e) => handleArrayChange(e, "technologies")}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+         
+          <div>
+            <label className="block font-semibold mb-1">Project Type</label>
+            <input
+              type="text"
+              name="projectType"
+              value={formData.projectType || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div className="col-span-2">
+            <label className="block font-semibold mb-1">Images</label>
+            <input
+              type="file"
+              multiple
+              onChange={handleImageChange}
+              className="w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Video Demo Link</label>
+            <input
+              type="text"
+              name="videoLink"
+              value={formData.videoLink || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+         
+          <div>
+            <label className="block font-semibold mb-1">Repository Link</label>
+            <input
+              type="text"
+              name="repoLink"
+              value={formData.repoLink || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Live Demo Link</label>
+            <input
+              type="text"
+              name="liveLink"
+              value={formData.liveLink || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              value={formData.startDate?.split("T")[0] || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+         
+          <div>
+            <label className="block font-semibold mb-1">End Date</label>
+            <input
+              type="date"
+              name="endDate"
+              value={formData.endDate?.split("T")[0] || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+         
+          <div>
+            <label className="block font-semibold mb-1">Category</label>
+            <input
+              type="text"
+              name="category"
+              value={formData.category || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Skills (comma separated)</label>
+            <input
+              type="text"
+              value={(formData.skills || []).join(", ")}
+              onChange={(e) => handleArrayChange(e, "skills")}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Status</label>
+            <select
+              name="status"
+              value={formData.status || "Planned"}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            >
+              <option value="Completed">Completed</option>
+              <option value="In-progress">In-progress</option>
+              <option value="Planned">Planned</option>
+            </select>
+          </div>
+
+        
+          <div>
+            <label className="block font-semibold mb-1">Role</label>
+            <input
+              type="text"
+              name="role"
+              value={formData.role || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
+          <div>
+            <label className="block font-semibold mb-1">Team Size</label>
+            <input
+              type="number"
+              name="teamSize"
+              value={formData.teamSize || ""}
+              onChange={handleChange}
+              className="p-2 border rounded w-full"
+            />
+          </div>
+
+          
           <div className="col-span-2 flex justify-end space-x-2 mt-4">
             <button
               type="button"
