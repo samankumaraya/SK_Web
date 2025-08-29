@@ -26,6 +26,16 @@ const ViewSkills = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    <section
+  style={{
+    backgroundImage: "url('/images/Background.jpg')",
+    backgroundSize: "cover",        
+    backgroundPosition: "center",    
+    backgroundRepeat: "no-repeat",  
+    minHeight: "100vh",              
+    width: "100%",                   
+  }}
+>
     <div className="max-w-6xl mx-auto p-6">
       <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -51,7 +61,7 @@ const ViewSkills = () => {
           </div>
         ))}
       </div>
-    </div>
+    </div></section>
   );
 };
 
