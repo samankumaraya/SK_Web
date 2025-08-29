@@ -14,6 +14,34 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedEducation = await Education.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!updatedEducation) {
+      return res.status(404).json({ error: "Education not found" });
+    }
+    res.json({ message: "Education updated successfully!", updatedEducation });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update education" });
+  }
+});
+
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedEducation = await Education.findByIdAndDelete(req.params.id);
+    if (!deletedEducation) {
+      return res.status(404).json({ error: "Education not found" });
+    }
+    res.json({ message: "Education deleted successfully!" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete education" });
+  }
+});
 
 router.get("/", async (req, res) => {
   try {
