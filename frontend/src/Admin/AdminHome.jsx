@@ -14,16 +14,16 @@ const AdminHome = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: "Add Project", path: "/admin/add-project", icon: <PlusCircle /> },
-    { name: "Add Education", path: "/admin/add-education", icon: <PlusCircle /> },
-    { name: "Add Skill", path: "/admin/add-skill", icon: <PlusCircle /> },
-    { name: "Add Experience", path: "/admin/add-experience", icon: <PlusCircle /> },
+    { name: "Add Project", path: "/pro", icon: <PlusCircle /> },
+    { name: "Add Education", path: "/edu", icon: <PlusCircle /> },
+    { name: "Add Skill", path: "/ski", icon: <PlusCircle /> },
+    { name: "Add Experience", path: "/exp", icon: <PlusCircle /> },
 
-    { name: "All Projects", path: "/admin/projects", icon: <FolderOpen /> },
-    { name: "All Educations", path: "/admin/educations", icon: <FolderOpen /> },
-    { name: "All Skills", path: "/admin/skills", icon: <FolderOpen /> },
-    { name: "All Experience", path: "/admin/experiences", icon: <FolderOpen /> },
-    { name: "All Charts", path: "/admin/charts", icon: <FolderOpen /> },
+    { name: "All Projects", path: "/advp", icon: <FolderOpen /> },
+    { name: "All Educations", path: "/adve", icon: <FolderOpen /> },
+    { name: "All Skills", path: "/advs", icon: <FolderOpen /> },
+    { name: "All Experience", path: "/advex", icon: <FolderOpen /> },
+    { name: "All Charts", path: "/admin", icon: <FolderOpen /> },
   ];
 
   return (

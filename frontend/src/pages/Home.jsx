@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const phases = [
-  { label: "About", color: "#4F80FF", path: "/about" },
-  { label: "Projects", color: "#F2C94C", path: "/vprojects" },
-  { label: "Skills", color: "#F2994A", path: "/vskills" },
-  { label: "Experience", color: "#EB5757", path: "/vexperience" },
-  { label: "Education", color: "#6FCF97", path: "/veducation" },
-  { label: "Contact", color: "#27AE60", path: "/contact" },
+  { label: "About", color: "#4F80FF", path: "/abo" },
+  { label: "Projects", color: "#F2C94C", path: "/vpro" },
+  { label: "Skills", color: "#F2994A", path: "/vski" },
+  { label: "Experience", color: "#EB5757", path: "/vexp" },
+  { label: "Education", color: "#6FCF97", path: "/vedu" },
+  { label: "Contact", color: "#27AE60", path: "/con" },
 ];
 
 const radius = 190;

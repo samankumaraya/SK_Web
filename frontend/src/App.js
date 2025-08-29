@@ -12,6 +12,10 @@ import ViewEducation from "./pages/ViewEducation";
 import ViewExperience from "./pages/ViewExperiences";
 import ViewSkills from "./pages/ViewSkills";
 import AdminHome from "./Admin/AdminHome";
+import AdminViewEducation from "./Admin/AdminViewEducation";
+import AdminViewProjects from "./Admin/AdminViewProjects";
+import AdminViewExperiences from "./Admin/AdminViewExperiences";
+import AdminViewSkills from "./Admin/AdminViewSkills";
 
 function App() {
   return (
@@ -19,16 +23,22 @@ function App() {
      
       <Routes>
         <Route path="/" element={<Home />} />
-         <Route path="/education" element={<EducationForm />} />
-          <Route path="/experience" element={<ExperienceForm />} />
-          <Route path="/skills" element={<SkillForm />} />
-          <Route path="/project" element={<AddProjectForm />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/vprojects" element={<ViewProjects />} />
-          <Route path="/veducation" element={<ViewEducation />} />
-           <Route path="/vexperience" element={<ViewExperience />} />
-            <Route path="/admin" element={<AdminHome/>} />
+         <Route path="/edu" element={<EducationForm />} />
+          <Route path="/exp" element={<ExperienceForm />} />
+          <Route path="/ski" element={<SkillForm />} />
+          <Route path="/pro" element={<AddProjectForm />} />
+          <Route path="/con" element={<Contact />} />
+          <Route path="/abo" element={<About />} />
+          <Route path="/vpro" element={<ViewProjects />} />
+          <Route path="/vedu" element={<ViewEducation />} />
+          <Route path="/vexp" element={<ViewExperience />} />
+          <Route path="/vski" element={<ViewSkills />} />
+
+          <Route path="/admin" element={<AdminHome/>} />
+          <Route path="/advp" element={<AdminViewProjects />} />
+          <Route path="/adve" element={<AdminViewEducation />} />
+          <Route path="/advex" element={<AdminViewExperiences />} />  
+          <Route path="/advs" element={<AdminViewSkills />} /> 
       </Routes>
     </Router>
   );
