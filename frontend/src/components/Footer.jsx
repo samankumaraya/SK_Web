@@ -1,6 +1,6 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin, Twitter, ArrowUp } from "lucide-react";
-import { FaSkype } from "react-icons/fa";
+import { Facebook, Instagram, Linkedin, Twitter, ArrowUp, Youtube } from "lucide-react";
+import { FaSkype, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   
@@ -19,20 +19,23 @@ const Footer = () => {
       </p>
 
       <div className="flex justify-center space-x-4 mt-6">
-        <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+        <a href="https://twitter.com" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
           <Twitter size={18} />
         </a>
-        <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+        <a href="https://web.facebook.com/saman.kumara.777029" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
           <Facebook size={18} />
         </a>
-        <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+        <a href="https://www.instagram.com/kumara9476/" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
           <Instagram size={18} />
         </a>
-        <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
-          <FaSkype size={18} />
+        <a href="https://wa.me/+94766199583" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+          <FaWhatsapp size={18} />
         </a>
-        <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+        <a href="https://www.linkedin.com/in/s-kumara-80304a229/" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
           <Linkedin size={18} />
+        </a>
+        <a href="https://youtube.com" className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
+          <Youtube size={18} />
         </a>
       </div>
 
