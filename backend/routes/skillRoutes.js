@@ -17,8 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// @route POST /api/skills
-// @desc Add new skill
+
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     const { name, percentage, yearsOfExperience } = req.body;
@@ -41,8 +40,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
-// @route GET /api/skills
-// @desc Get all skills
+
 router.get("/", async (req, res) => {
   try {
     const skills = await Skill.find();
@@ -52,8 +50,35 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route DELETE /api/skills/:id
-// @desc Delete skill
+
+router.put("/:id", upload.single("image"), async (req, res) => {
+  try {
+    const { name, percentage, yearsOfExperience } = req.body;
+
+    const updateData = { name, percentage, yearsOfExperience };
+
+   
+    if (req.file) {
+      updateData.imagePath = `/uploads/images/${req.file.filename}`;
+    }
+
+    const updatedSkill = await Skill.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedSkill) {
+      return res.status(404).json({ message: "Skill not found" });
+    }
+
+    res.json(updatedSkill);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
 router.delete("/:id", async (req, res) => {
   try {
     const skill = await Skill.findByIdAndDelete(req.params.id);
