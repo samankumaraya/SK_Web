@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 
 const ViewEducation = () => {
   const [educations, setEducations] = useState([]);
@@ -42,7 +41,7 @@ const ViewEducation = () => {
     width: "100%",                   
   }}
 >
-  <Header/>
+ 
     <div className="p-6">
       <h1 className="text-5xl text-green-600 font-bold mb-4 text-center">Education</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -71,7 +70,7 @@ const ViewEducation = () => {
         ))}
       </div>
 
-      {/* Modal */}
+      
       {isModalOpen && selectedEducation && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4">
           <div className="bg-white rounded-xl p-6 w-full max-w-md relative text-center shadow-lg">
@@ -102,7 +101,7 @@ const ViewEducation = () => {
       )}
     </div>
     </section>
-    <Footer/>
+   
     </div>
   );
 };
