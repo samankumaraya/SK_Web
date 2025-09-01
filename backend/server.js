@@ -12,7 +12,7 @@ import educationRoutes from "./routes/educationRoutes.js";
 import experienceRoutes from "./routes/experienceRoutes.js";
 import skillRoutes from "./routes/skillRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
-import contactRoutes from "./routes/contactRoutes.js"; // ✅ New Contact Route
+import contactRoutes from "./routes/contactRoutes.js"; 
 
 const app = express();
 
@@ -50,7 +50,7 @@ app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/projects", projectRoutes);
-app.use("/api/contact", contactRoutes); // ✅ Add contact API
+app.use("/api/contact", contactRoutes); 
 
 
 app.get("/", (req, res) => {
