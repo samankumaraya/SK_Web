@@ -3,6 +3,14 @@ import { Facebook, Instagram, Linkedin, Twitter, ArrowUp } from "lucide-react";
 import { FaSkype } from "react-icons/fa";
 
 const Footer = () => {
+  
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", 
+    });
+  };
+
   return (
     <footer className="bg-gray-50 text-center py-10 relative">
       <h2 className="text-2xl font-bold text-gray-800">Saman Kumara</h2>
@@ -44,12 +52,13 @@ const Footer = () => {
         </a>
       </p>
 
-      <a
-        href="#home"
+      
+      <button
+        onClick={scrollToTop}
         className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition"
       >
         <ArrowUp size={20} />
-      </a>
+      </button>
     </footer>
   );
 };
