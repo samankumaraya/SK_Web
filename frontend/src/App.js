@@ -38,7 +38,7 @@ function App() {
           <Route path="/vexp" element={<ViewExperience />} />
           <Route path="/vski" element={<ViewSkills />} />
 
-          <Route path="/admin" element={<AdminHome/>} />
+          
           <Route path="/advp" element={<AdminViewProjects />} />
           <Route path="/adve" element={<AdminViewEducation />} />
           <Route path="/advex" element={<AdminViewExperiences />} />  
@@ -47,7 +47,7 @@ function App() {
            <Route path="/footer" element={<Footer />} /> 
            <Route path="/nhome" element={<NewHomePage />} />
             
-            <Route path="/ladmin" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLogin />} />
 
 
       </Routes>

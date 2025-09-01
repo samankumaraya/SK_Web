@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,16 +17,10 @@ const AdminLogin = () => {
         password,
       });
 
-      
       localStorage.setItem("adminToken", res.data.token);
-
       setMessage("Login successful!");
-
-     
       setUsername("");
       setPassword("");
-
-     
       navigate("/admin");
     } catch (err) {
       setMessage(err.response?.data?.error || "Login failed");
@@ -34,21 +28,39 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+    <section className="relative w-full min-h-screen flex items-center justify-center">
+      
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
+
+      
+      <div className="relative z-10 w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
+          Admin Login
+        </h2>
+
         {message && (
           <div
             className={`mb-4 text-center ${
-              message.includes("successful")
-                ? "text-green-500"
-                : "text-red-500"
+              message.includes("successful") ? "text-green-500" : "text-red-500"
             }`}
           >
             {message}
           </div>
         )}
-        <form onSubmit={handleLogin} className="space-y-4">
+
+        <form onSubmit={handleLogin} className="space-y-4" autoComplete="off">
           <input
             type="text"
             placeholder="Username"
@@ -56,6 +68,7 @@ const AdminLogin = () => {
             onChange={(e) => setUsername(e.target.value)}
             className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
+            autoComplete="off"
           />
           <input
             type="password"
@@ -64,6 +77,7 @@ const AdminLogin = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
+            autoComplete="new-password"
           />
           <button
             type="submit"
@@ -73,7 +87,7 @@ const AdminLogin = () => {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
