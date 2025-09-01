@@ -1,7 +1,6 @@
 import React from "react";
 import checkIcon from "../assets/icons/check.png";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 
 const About = () => {
   const birthday = new Date("2000-08-01");
@@ -36,7 +35,7 @@ const About = () => {
         backgroundPosition: "center",
       }}
     >
-      <Header/>
+      
       <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-16">
           
@@ -97,7 +96,7 @@ const About = () => {
       </div>
      
     </section>
-    <Footer/>
+    
     </div>
   );
 };

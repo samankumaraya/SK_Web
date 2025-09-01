@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import EducationForm from "./Admin/EducationForm";
@@ -18,6 +18,8 @@ import AdminViewExperiences from "./Admin/AdminViewExperiences";
 import AdminViewSkills from "./Admin/AdminViewSkills";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NewHomePage from "./pages/NewHome";
+
 
 function App() {
   return (
@@ -42,7 +44,8 @@ function App() {
           <Route path="/advex" element={<AdminViewExperiences />} />  
           <Route path="/advs" element={<AdminViewSkills />} /> 
            <Route path="/header" element={<Header />} />
-           <Route path="/footer" element={<Footer />} />  
+           <Route path="/footer" element={<Footer />} /> 
+           <Route path="/nhome" element={<NewHomePage />} />   
       </Routes>
     </Router>
   );
