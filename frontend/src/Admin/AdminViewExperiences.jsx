@@ -8,7 +8,6 @@ const AdminViewExperiences = () => {
   const [selectedExperience, setSelectedExperience] = useState(null);
   const [editExperience, setEditExperience] = useState(null);
 
-  
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
@@ -23,7 +22,6 @@ const AdminViewExperiences = () => {
     fetchExperiences();
   }, []);
 
- 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this experience?")) return;
     try {
@@ -34,7 +32,6 @@ const AdminViewExperiences = () => {
     }
   };
 
-  
   const handleEditChange = (e) => {
     const { name, value, type, checked } = e.target;
     setEditExperience((prev) => ({
@@ -43,7 +40,6 @@ const AdminViewExperiences = () => {
     }));
   };
 
-  
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,31 +61,42 @@ const AdminViewExperiences = () => {
     setEditExperience(null);
   };
 
-  if (loading) return <p className="text-center mt-10 text-blue-500">Loading experiences...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (loading)
+    return <p className="text-center mt-10 text-blue-500">Loading experiences...</p>;
+  if (error)
+    return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <section
-      style={{
-        backgroundImage: "url('/images/Background.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        width: "100%",
-      }}
-    >
-      <div className="max-w-5xl mx-auto px-4 py-8">
-        <h2 className="text-5xl font-bold text-center mb-8 text-green-600">All Experiences</h2>
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
+      
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+     
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0"></div>
+
+      
+      <div className="relative z-10 max-w-5xl mx-auto px-4 py-8 w-full">
+        <h2 className="text-5xl font-bold text-center mb-8 text-green-600">
+          All Experiences
+        </h2>
 
         {experiences.length === 0 ? (
-          <p className="text-center text-gray-500">No experiences found.</p>
+          <p className="text-center text-gray-200">No experiences found.</p>
         ) : (
           <div className="grid gap-6 md:grid-cols-2">
             {experiences.map((exp) => (
               <div
                 key={exp._id}
-                className="bg-white shadow-md rounded-lg p-6 border border-gray-100 hover:shadow-lg transition-shadow flex flex-col justify-between"
+                className="bg-white/90 shadow-md rounded-lg p-6 border border-gray-100 hover:shadow-lg transition-shadow flex flex-col justify-between"
               >
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-800">
@@ -186,173 +193,181 @@ const AdminViewExperiences = () => {
           </div>
         )}
 
-       
-{editExperience && (
-  <div
-    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-    onClick={closeModal}
-  >
-    <div
-      className="bg-white rounded-lg max-w-3xl w-full p-6 relative shadow-lg"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button
-        onClick={closeModal}
-        className="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl font-bold"
-        aria-label="Close modal"
-      >
-        &times;
-      </button>
-
-      <h3 className="text-2xl font-bold mb-4 text-gray-800">Edit Experience</h3>
-
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleEditSubmit}>
-        <div>
-          <label className="block font-semibold mb-1">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={editExperience.title}
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block font-semibold mb-1">Employment Type</label>
-          <input
-            type="text"
-            name="employmentType"
-            value={editExperience.employmentType}
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block font-semibold mb-1">Company</label>
-          <input
-            type="text"
-            name="company"
-            value={editExperience.company}
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block font-semibold mb-1">Location</label>
-          <input
-            type="text"
-            name="location"
-            value={editExperience.location || ""}
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-          />
-        </div>
-
-        <div>
-    <label className="block font-semibold mb-1">Location Type</label>
-    <select
-      name="locationType"
-      value={editExperience.locationType || ""}
-      onChange={handleEditChange}
-      className="w-full border border-gray-300 p-2 rounded"
-    >
-      <option value="">Select</option>
-      <option value="On-Site">On-Site</option>
-      <option value="Hybrid">Hybrid</option>
-      <option value="Remote">Remote</option>
-    </select>
-  </div>
-
-        <div>
-          <label className="block font-semibold mb-1">Start Date</label>
-          <input
-            type="date"
-            name="startDate"
-            value={
-              editExperience.startDate
-                ? new Date(editExperience.startDate).toISOString().split("T")[0]
-                : ""
-            }
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block font-semibold mb-1">End Date</label>
-          <input
-            type="date"
-            name="endDate"
-            value={
-              editExperience.endDate
-                ? new Date(editExperience.endDate).toISOString().split("T")[0]
-                : ""
-            }
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-            disabled={editExperience.isCurrent}
-          />
-        </div>
-
-        <div className="flex items-center gap-2 mt-2">
-          <input
-            type="checkbox"
-            name="isCurrent"
-            checked={editExperience.isCurrent || false}
-            onChange={handleEditChange}
-          />
-          <label className="font-semibold">Currently Working</label>
-        </div>
-
-        <div className="md:col-span-2">
-          <label className="block font-semibold mb-1">Description</label>
-          <textarea
-            name="description"
-            value={editExperience.description || ""}
-            onChange={handleEditChange}
-            className="w-full border border-gray-300 p-2 rounded"
-          />
-        </div>
-
-        <div className="md:col-span-2">
-    <label className="block font-semibold mb-1">Job Source</label>
-    <select
-      name="jobSource"
-      value={editExperience.jobSource || ""}
-      onChange={handleEditChange}
-      className="w-full border border-gray-300 p-2 rounded"
-    >
-      <option value="">Select</option>
-      <option value="LinkedIn">LinkedIn</option>
-      <option value="Company Website">Company Website</option>
-      <option value="Other Job Sites">Other Job Sites</option>
-      <option value="Referral">Referral</option>
-      <option value="Contacted by Recruiter">Contacted by Recruiter</option>
-      <option value="Staffing agency">Staffing agency</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-        <div className="md:col-span-2">
-          <button
-            type="submit"
-            className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition w-full"
+        
+        {editExperience && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            onClick={closeModal}
           >
-            Save Changes
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-)}
+            <div
+              className="bg-white rounded-lg max-w-3xl w-full p-6 relative shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
 
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">Edit Experience</h3>
+
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleEditSubmit}>
+                
+                <div>
+                  <label className="block font-semibold mb-1">Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    value={editExperience.title}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                    required
+                  />
+                </div>
+
+          
+                <div>
+                  <label className="block font-semibold mb-1">Employment Type</label>
+                  <input
+                    type="text"
+                    name="employmentType"
+                    value={editExperience.employmentType}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                    required
+                  />
+                </div>
+
+                
+                <div>
+                  <label className="block font-semibold mb-1">Company</label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={editExperience.company}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                    required
+                  />
+                </div>
+
+               
+                <div>
+                  <label className="block font-semibold mb-1">Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={editExperience.location || ""}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                  />
+                </div>
+
+               
+                <div>
+                  <label className="block font-semibold mb-1">Location Type</label>
+                  <select
+                    name="locationType"
+                    value={editExperience.locationType || ""}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                  >
+                    <option value="">Select</option>
+                    <option value="On-Site">On-Site</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Remote">Remote</option>
+                  </select>
+                </div>
+
+                
+                <div>
+                  <label className="block font-semibold mb-1">Start Date</label>
+                  <input
+                    type="date"
+                    name="startDate"
+                    value={
+                      editExperience.startDate
+                        ? new Date(editExperience.startDate).toISOString().split("T")[0]
+                        : ""
+                    }
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                    required
+                  />
+                </div>
+
+               
+                <div>
+                  <label className="block font-semibold mb-1">End Date</label>
+                  <input
+                    type="date"
+                    name="endDate"
+                    value={
+                      editExperience.endDate
+                        ? new Date(editExperience.endDate).toISOString().split("T")[0]
+                        : ""
+                    }
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                    disabled={editExperience.isCurrent}
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 mt-2">
+                  <input
+                    type="checkbox"
+                    name="isCurrent"
+                    checked={editExperience.isCurrent || false}
+                    onChange={handleEditChange}
+                  />
+                  <label className="font-semibold">Currently Working</label>
+                </div>
+
+            
+                <div className="md:col-span-2">
+                  <label className="block font-semibold mb-1">Description</label>
+                  <textarea
+                    name="description"
+                    value={editExperience.description || ""}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                  />
+                </div>
+
+               
+                <div className="md:col-span-2">
+                  <label className="block font-semibold mb-1">Job Source</label>
+                  <select
+                    name="jobSource"
+                    value={editExperience.jobSource || ""}
+                    onChange={handleEditChange}
+                    className="w-full border border-gray-300 p-2 rounded"
+                  >
+                    <option value="">Select</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Company Website">Company Website</option>
+                    <option value="Other Job Sites">Other Job Sites</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Contacted by Recruiter">Contacted by Recruiter</option>
+                    <option value="Staffing agency">Staffing agency</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div className="md:col-span-2">
+                  <button
+                    type="submit"
+                    className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition w-full"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

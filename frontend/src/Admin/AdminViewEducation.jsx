@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import EditEducationModal from "./EditEducationModal"; // Create a separate modal component
+import EditEducationModal from "./EditEducationModal";
 
 const AdminViewEducation = () => {
   const [educations, setEducations] = useState([]);
@@ -53,24 +53,32 @@ const AdminViewEducation = () => {
   };
 
   return (
-    <section
-      style={{
-        backgroundImage: "url('/images/Background.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        width: "100%",
-      }}
-    >
-      <div className="p-6">
-        <h1 className="text-5xl text-green-600 font-bold mb-4 text-center">Education</h1>
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
+      
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+    
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0"></div>
+
+      <div className="relative z-10 w-full max-w-6xl p-6">
+        <h1 className="text-5xl sm:text-6xl font-bold mb-8 text-center text-green-400">
+          Education
+        </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {educations.map((edu) => (
             <div
               key={edu._id}
-              className="border p-4 bg-white rounded shadow flex justify-between items-center"
+              className="border p-4 bg-white/90 rounded shadow flex justify-between items-center"
             >
               <div>
                 <h2 className="font-semibold">{edu.school}</h2>
@@ -104,7 +112,7 @@ const AdminViewEducation = () => {
           ))}
         </div>
 
-        
+     
         {isViewModalOpen && selectedEducation && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4">
             <div className="bg-white rounded-xl p-6 w-full max-w-md relative text-center shadow-lg">
@@ -134,7 +142,7 @@ const AdminViewEducation = () => {
           </div>
         )}
 
-        
+     
         {isEditModalOpen && selectedEducation && (
           <EditEducationModal
             education={selectedEducation}

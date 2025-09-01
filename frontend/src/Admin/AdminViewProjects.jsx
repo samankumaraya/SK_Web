@@ -5,7 +5,7 @@ import EditProjectModal from "./EditProjectModal";
 const ViewProjectModal = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
-      <div className="bg-white p-6 rounded-lg w-full max-w-4xl max-h-screen overflow-y-auto">
+      <div className="bg-white p-6 rounded-lg w-full max-w-4xl max-h-screen overflow-y-auto relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 font-bold text-2xl"
@@ -74,48 +74,68 @@ const AdminViewProjects = () => {
     }
   };
 
-  if (loading) return <p>Loading projects...</p>;
+  if (loading) return <p className="text-center mt-10 text-blue-500">Loading projects...</p>;
 
   return (
-    <section className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold text-center mb-8 text-green-600">All Projects</h1>
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
+      
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <div key={project._id} className="border rounded-lg p-4 bg-white shadow hover:shadow-lg transition">
-            <h2 className="text-xl font-semibold">{project.title}</h2>
-            <p className="text-gray-600">{project.shortDescription}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {project.technologies?.map((tech, i) => (
-                <span key={i} className="bg-blue-200 text-blue-800 px-2 py-1 rounded">{tech}</span>
-              ))}
+      
+      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0"></div>
+
+      
+      <div className="relative z-10 max-w-7xl w-full px-6 py-8">
+        <h1 className="text-4xl font-bold text-center mb-8 text-green-600">All Projects</h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <div key={project._id} className="border rounded-lg p-4 bg-white/90 shadow hover:shadow-lg transition">
+              <h2 className="text-xl font-semibold">{project.title}</h2>
+              <p className="text-gray-600">{project.shortDescription}</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {project.technologies?.map((tech, i) => (
+                  <span key={i} className="bg-blue-200 text-blue-800 px-2 py-1 rounded">{tech}</span>
+                ))}
+              </div>
+              {project.images?.length > 0 && (
+                <img src={project.images[0]} alt={project.title} className="mt-2 w-full h-40 object-cover rounded" />
+              )}
+              <div className="mt-4 flex gap-2 flex-wrap">
+                <button onClick={() => setViewProject(project)} className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700">View</button>
+                <button onClick={() => setSelectedProject(project)} className="bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700">Edit</button>
+                <button onClick={() => handleDelete(project._id)} className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+              </div>
             </div>
-            {project.images?.length > 0 && (
-              <img src={project.images[0]} alt={project.title} className="mt-2 w-full h-40 object-cover rounded" />
-            )}
-            <div className="mt-4 flex gap-2 flex-wrap">
-              <button onClick={() => setViewProject(project)} className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700">View</button>
-              <button onClick={() => setSelectedProject(project)} className="bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700">Edit</button>
-              <button onClick={() => handleDelete(project._id)} className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        
+        {selectedProject && (
+          <EditProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+            onUpdated={fetchProjects}
+          />
+        )}
+
+        
+        {viewProject && (
+          <ViewProjectModal
+            project={viewProject}
+            onClose={() => setViewProject(null)}
+          />
+        )}
       </div>
-
-      {selectedProject && (
-        <EditProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-          onUpdated={fetchProjects}
-        />
-      )}
-
-      {viewProject && (
-        <ViewProjectModal
-          project={viewProject}
-          onClose={() => setViewProject(null)}
-        />
-      )}
     </section>
   );
 };

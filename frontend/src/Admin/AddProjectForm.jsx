@@ -49,9 +49,9 @@ const AddProjectForm = () => {
         }
       }
 
-      const res = await axios.post("http://localhost:5000/api/projects", data, {
-  headers: { "Content-Type": "multipart/form-data" }
-});
+      await axios.post("http://localhost:5000/api/projects", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       alert("Project added successfully!");
       setFormData({
@@ -79,158 +79,175 @@ const AddProjectForm = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h2 className="text-4xl text-blue-500 font-bold mb-4 text-center">Add Project</h2>
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          type="text"
-          name="title"
-          placeholder="Project Name"
-          value={formData.title}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
+    <section className="relative w-full min-h-screen flex items-center justify-center">
+     
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-        <input
-          type="text"
-          name="shortDescription"
-          placeholder="Short Description"
-          value={formData.shortDescription}
-          onChange={handleChange}
-          required
-          className="w-full p-2 border rounded"
-        />
+     
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
 
-        <textarea
-          name="detailedDescription"
-          placeholder="Detailed Description"
-          value={formData.detailedDescription}
-          onChange={handleChange}
-          className="w-full p-2 border rounded col-span-2"
-        />
+      <div className="relative z-10 max-w-6xl w-full bg-white p-6 rounded-lg shadow-lg overflow-y-auto">
+        <h2 className="text-4xl text-blue-500 font-bold mb-4 text-center">Add Project</h2>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="title"
+            placeholder="Project Name"
+            value={formData.title}
+            onChange={handleChange}
+            required
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          placeholder="Technologies Used (comma separated)"
-          value={formData.technologies.join(", ")}
-          onChange={(e) => handleArrayChange(e, "technologies")}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            name="shortDescription"
+            placeholder="Short Description"
+            value={formData.shortDescription}
+            onChange={handleChange}
+            required
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          name="projectType"
-          placeholder="Project Type (Web/Mobile/Desktop)"
-          value={formData.projectType}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <textarea
+            name="detailedDescription"
+            placeholder="Detailed Description"
+            value={formData.detailedDescription}
+            onChange={handleChange}
+            className="w-full p-2 border rounded col-span-2"
+          />
 
-        <input
-          type="file"
-          multiple
-          onChange={handleImageChange}
-          className="w-full"
-        />
+          <input
+            type="text"
+            placeholder="Technologies Used (comma separated)"
+            value={formData.technologies.join(", ")}
+            onChange={(e) => handleArrayChange(e, "technologies")}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          name="videoLink"
-          placeholder="Video Demo Link"
-          value={formData.videoLink}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            name="projectType"
+            placeholder="Project Type (Web/Mobile/Desktop)"
+            value={formData.projectType}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          name="repoLink"
-          placeholder="Repository Link"
-          value={formData.repoLink}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="file"
+            multiple
+            onChange={handleImageChange}
+            className="w-full"
+          />
 
-        <input
-          type="text"
-          name="liveLink"
-          placeholder="Live Demo Link"
-          value={formData.liveLink}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            name="videoLink"
+            placeholder="Video Demo Link"
+            value={formData.videoLink}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="date"
-          name="startDate"
-          value={formData.startDate}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            name="repoLink"
+            placeholder="Repository Link"
+            value={formData.repoLink}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="date"
-          name="endDate"
-          value={formData.endDate}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            name="liveLink"
+            placeholder="Live Demo Link"
+            value={formData.liveLink}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          name="category"
-          placeholder="Category / Domain"
-          value={formData.category}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="date"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          placeholder="Skills Highlighted (comma separated)"
-          value={formData.skills.join(", ")}
-          onChange={(e) => handleArrayChange(e, "skills")}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="date"
+            name="endDate"
+            value={formData.endDate}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <select
-          name="status"
-          value={formData.status}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        >
-          <option value="Completed">Completed</option>
-          <option value="In-progress">In-progress</option>
-          <option value="Planned">Planned</option>
-        </select>
+          <input
+            type="text"
+            name="category"
+            placeholder="Category / Domain"
+            value={formData.category}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="text"
-          name="role"
-          placeholder="Your Role"
-          value={formData.role}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <input
+            type="text"
+            placeholder="Skills Highlighted (comma separated)"
+            value={formData.skills.join(", ")}
+            onChange={(e) => handleArrayChange(e, "skills")}
+            className="w-full p-2 border rounded"
+          />
 
-        <input
-          type="number"
-          name="teamSize"
-          placeholder="Team Size"
-          value={formData.teamSize}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
+          <select
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          >
+            <option value="Completed">Completed</option>
+            <option value="In-progress">In-progress</option>
+            <option value="Planned">Planned</option>
+          </select>
 
-        <button
-          type="submit"
-          className="col-span-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
-          Save
-        </button>
-      </form>
-    </div>
+          <input
+            type="text"
+            name="role"
+            placeholder="Your Role"
+            value={formData.role}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
+
+          <input
+            type="number"
+            name="teamSize"
+            placeholder="Team Size"
+            value={formData.teamSize}
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
+
+          <button
+            type="submit"
+            className="col-span-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
