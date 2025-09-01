@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import HomeHeader from "../components/HomeHeader";
+import Footer from "../components/Footer";
 
 const phases = [
   { label: "About", color: "#4F80FF", path: "/abo" },
@@ -25,7 +27,9 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen h-screen bg-white/40 flex items-center justify-center overflow-hidden px-4">
+    <div>
+      <HomeHeader/>
+      <div className="w-screen h-screen bg-white/40 flex items-center justify-center overflow-hidden px-4">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl gap-8">
         
         <div className="flex flex-col items-center text-center gap-6 md:w-2/5">
@@ -137,6 +141,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }
