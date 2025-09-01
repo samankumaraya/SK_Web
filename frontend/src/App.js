@@ -19,7 +19,7 @@ import AdminViewSkills from "./Admin/AdminViewSkills";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewHomePage from "./pages/NewHome";
-
+import AdminLogin from "./Admin/Auth/AdminLogin";
 
 function App() {
   return (
@@ -45,7 +45,11 @@ function App() {
           <Route path="/advs" element={<AdminViewSkills />} /> 
            <Route path="/header" element={<Header />} />
            <Route path="/footer" element={<Footer />} /> 
-           <Route path="/nhome" element={<NewHomePage />} />   
+           <Route path="/nhome" element={<NewHomePage />} />
+            
+            <Route path="/ladmin" element={<AdminLogin />} />
+
+
       </Routes>
     </Router>
   );
