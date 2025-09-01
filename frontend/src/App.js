@@ -16,6 +16,8 @@ import AdminViewEducation from "./Admin/AdminViewEducation";
 import AdminViewProjects from "./Admin/AdminViewProjects";
 import AdminViewExperiences from "./Admin/AdminViewExperiences";
 import AdminViewSkills from "./Admin/AdminViewSkills";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path="/adve" element={<AdminViewEducation />} />
           <Route path="/advex" element={<AdminViewExperiences />} />  
           <Route path="/advs" element={<AdminViewSkills />} /> 
+           <Route path="/header" element={<Header />} />
+           <Route path="/footer" element={<Footer />} />  
       </Routes>
     </Router>
   );

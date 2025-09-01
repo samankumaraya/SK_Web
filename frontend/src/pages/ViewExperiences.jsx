@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ViewExperiences = () => {
   const [experiences, setExperiences] = useState([]);
@@ -29,6 +31,8 @@ const ViewExperiences = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    <div>
+      <Header/>
     <section
   style={{
     backgroundImage: "url('/images/Background.jpg')",
@@ -118,6 +122,8 @@ const ViewExperiences = () => {
       )}
     </div>
     </section>
+    <Footer/>
+    </div>
   );
 };
 

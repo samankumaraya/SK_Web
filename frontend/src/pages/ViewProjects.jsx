@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ViewProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -23,7 +25,7 @@ const ViewProjects = () => {
   if (loading) return <p>Loading projects...</p>;
 
   return (
-    <section
+    <div><section
       style={{
         backgroundImage: "url('/images/Background.jpg')",
         backgroundSize: "cover",
@@ -33,6 +35,7 @@ const ViewProjects = () => {
         width: "100%",
       }}
     >
+      <Header/>
       <div className="p-6">
        
         <h1 className="text-4xl font-extrabold text-center mb-8 text-green-600">
@@ -210,6 +213,8 @@ const ViewProjects = () => {
         )}
       </div>
     </section>
+    <Footer/>
+    </div>
   );
 };
 

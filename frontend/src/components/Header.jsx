@@ -5,22 +5,22 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Education", href: "#education" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Blogs", href: "#blogs" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/abo" },
+    { name: "Skills", href: "/vski" },
+    { name: "Education", href: "/vedu" },
+    { name: "Projects", href: "/vpro" },
+    { name: "Experience", href: "/vexp" },
+    { name: "Blogs", href: "/blo" },
+    { name: "Gallery", href: "/gal" },
+    { name: "Contact", href: "/con" },
   ];
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 shadow-md backdrop-blur-md z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         
-        <a href="#home" className="text-2xl font-bold text-indigo-600">
+        <a href="/" className="text-2xl font-bold text-indigo-600">
           SAMAN KUMARA
         </a>
 

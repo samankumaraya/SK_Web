@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +33,8 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-50" id="contact" style={{ backgroundImage: "url('/images/Background.jpg')" }}>
+    <div><section className="py-12 bg-gray-50" id="contact" style={{ backgroundImage: "url('/images/Background.jpg')" }}>
+      <Header/>
       <div className="max-w-6xl mx-auto px-4">
        
         <div className="text-center mb-12">
@@ -154,6 +157,8 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    <Footer/>
+    </div>
   );
 };
 
