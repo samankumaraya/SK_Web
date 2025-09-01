@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ViewEducation = () => {
   const [educations, setEducations] = useState([]);
@@ -30,7 +32,7 @@ const ViewEducation = () => {
   };
 
   return (
-    <section
+    <div><section
   style={{
     backgroundImage: "url('/images/Background.jpg')",
     backgroundSize: "cover",        
@@ -40,6 +42,7 @@ const ViewEducation = () => {
     width: "100%",                   
   }}
 >
+  <Header/>
     <div className="p-6">
       <h1 className="text-5xl text-green-600 font-bold mb-4 text-center">Education</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -99,6 +102,8 @@ const ViewEducation = () => {
       )}
     </div>
     </section>
+    <Footer/>
+    </div>
   );
 };
 
