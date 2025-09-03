@@ -46,6 +46,7 @@ function App() {
            <Route path="/header" element={<Header />} />
            <Route path="/footer" element={<Footer />} /> 
            <Route path="/nhome" element={<NewHomePage />} />
+           <Route path="/ahome" element={<AdminHome />} />
             
             <Route path="/admin" element={<AdminLogin />} />
 

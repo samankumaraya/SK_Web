@@ -21,7 +21,7 @@ const AdminLogin = () => {
       setMessage("Login successful!");
       setUsername("");
       setPassword("");
-      navigate("/admin");
+      navigate("/ahome");
     } catch (err) {
       setMessage(err.response?.data?.error || "Login failed");
     }
