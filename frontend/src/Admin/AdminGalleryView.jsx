@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "../components/Header";
+import AdminHeader from "./compon/AdminHeader";
 import Footer from "../components/Footer";
 
 const AdminGalleryView = () => {
@@ -23,6 +23,7 @@ const AdminGalleryView = () => {
 
   return (
     <div>
+      <AdminHeader/>
     <div className="relative min-h-screen">
       
       <video

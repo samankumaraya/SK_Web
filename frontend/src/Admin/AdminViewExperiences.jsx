@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const AdminViewExperiences = () => {
   const [experiences, setExperiences] = useState([]);
@@ -67,7 +69,8 @@ const AdminViewExperiences = () => {
     return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
+   <div><AdminHeader/>
+   <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
       
       <video
         autoPlay
@@ -369,7 +372,7 @@ const AdminViewExperiences = () => {
           </div>
         )}
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 

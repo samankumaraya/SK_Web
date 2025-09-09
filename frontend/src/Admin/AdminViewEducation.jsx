@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EditEducationModal from "./EditEducationModal";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const AdminViewEducation = () => {
   const [educations, setEducations] = useState([]);
@@ -53,6 +55,8 @@ const AdminViewEducation = () => {
   };
 
   return (
+    <div>
+      <AdminHeader/>
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
       
       <video
@@ -151,7 +155,7 @@ const AdminViewEducation = () => {
           />
         )}
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const AdminViewSkills = () => {
   const [skills, setSkills] = useState([]);
@@ -85,6 +87,8 @@ const AdminViewSkills = () => {
     return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    
+    <div><AdminHeader/>
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
      
       <video
@@ -196,7 +200,7 @@ const AdminViewSkills = () => {
           </div>
         )}
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 
