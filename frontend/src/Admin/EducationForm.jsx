@@ -22,21 +22,43 @@ const EducationForm = () => {
     try {
       await axios.post('http://localhost:5000/api/education', formData);
       alert('Education saved successfully!');
+      setFormData({
+        school: '',
+        degree: '',
+        fieldOfStudy: '',
+        startDate: '',
+        endDate: '',
+        grade: '',
+        activities: '',
+        description: ''
+      });
     } catch (err) {
       alert('Error saving education data');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
+    <section className="relative w-full min-h-screen flex items-center justify-center">
+     
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+     
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
+
+      
+      <div className="relative z-10 max-w-4xl w-full bg-white shadow-lg rounded-xl p-8 overflow-y-auto">
         <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">Add Education</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-           
             <div className="space-y-5">
               <div>
                 <label className="block text-gray-700 font-medium mb-1">School</label>
@@ -46,6 +68,7 @@ const EducationForm = () => {
                   placeholder="e.g. University of Colombo"
                   onChange={handleChange}
                   required
+                  value={formData.school}
                 />
               </div>
 
@@ -57,6 +80,7 @@ const EducationForm = () => {
                   placeholder="e.g. Bachelor of Science"
                   onChange={handleChange}
                   required
+                  value={formData.degree}
                 />
               </div>
 
@@ -68,6 +92,7 @@ const EducationForm = () => {
                   placeholder="e.g. Computer Science"
                   onChange={handleChange}
                   required
+                  value={formData.fieldOfStudy}
                 />
               </div>
 
@@ -78,11 +103,11 @@ const EducationForm = () => {
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="e.g. 3.8 GPA"
                   onChange={handleChange}
+                  value={formData.grade}
                 />
               </div>
             </div>
 
-           
             <div className="space-y-5">
               <div className="flex gap-4">
                 <div className="flex-1">
@@ -93,6 +118,7 @@ const EducationForm = () => {
                     className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     onChange={handleChange}
                     required
+                    value={formData.startDate}
                   />
                 </div>
 
@@ -103,6 +129,7 @@ const EducationForm = () => {
                     name="endDate"
                     className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     onChange={handleChange}
+                    value={formData.endDate}
                   />
                 </div>
               </div>
@@ -114,6 +141,7 @@ const EducationForm = () => {
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="e.g. Debate Club, ACM Student Chapter"
                   onChange={handleChange}
+                  value={formData.activities}
                 />
               </div>
 
@@ -125,6 +153,7 @@ const EducationForm = () => {
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="Brief summary about your education..."
                   onChange={handleChange}
+                  value={formData.description}
                 ></textarea>
               </div>
             </div>
@@ -140,7 +169,7 @@ const EducationForm = () => {
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
