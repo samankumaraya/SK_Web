@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 import {
   BookOpen,
   Briefcase,
@@ -29,6 +31,8 @@ const AdminHome = () => {
   ];
 
   return (
+    <div>
+      <AdminHeader/>
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start py-10 px-4 overflow-hidden">
      
       <video
@@ -44,13 +48,14 @@ const AdminHome = () => {
 
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0"></div>
 
-      
+      <br></br><br></br>
       <div className="relative z-10 flex flex-col items-center justify-start w-full max-w-6xl">
         <div className="flex items-center gap-3 mb-8">
           <LayoutDashboard className="w-10 h-10 text-indigo-600" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Admin Dashboard
-          </h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-500">
+  Admin Dashboard
+</h1>
+
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full px-2">
@@ -70,7 +75,7 @@ const AdminHome = () => {
           ))}
         </div>
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 

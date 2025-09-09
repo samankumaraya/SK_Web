@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EditProjectModal from "./EditProjectModal";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const ViewProjectModal = ({ project, onClose }) => {
   return (
@@ -77,6 +79,8 @@ const AdminViewProjects = () => {
   if (loading) return <p className="text-center mt-10 text-blue-500">Loading projects...</p>;
 
   return (
+    
+    <div><AdminHeader/>
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden">
       
       <video
@@ -136,7 +140,7 @@ const AdminViewProjects = () => {
           />
         )}
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 
