@@ -15,6 +15,7 @@ import projectRoutes from "./routes/projectRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import adminAuthRoutes from "./routes/adminAuth.js";
 import galleryRoutes from "./routes/galleryRoutes.js"; 
+import reviewRoutes from "./routes/reviewRoutes.js";
 
 const app = express();
 
@@ -34,7 +35,8 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminAuthRoutes);
 app.use("/api/gallery", galleryRoutes); 
-
+app.use("/api/reviews", reviewRoutes);
+ 
 
 app.get("/", (req, res) => {
   res.send("🚀 Backend API is running...");

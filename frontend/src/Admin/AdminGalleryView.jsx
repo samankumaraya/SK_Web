@@ -24,7 +24,7 @@ const AdminGalleryView = () => {
   return (
     <div>
     <div className="relative min-h-screen">
-      <Header/>
+      
       <video
         autoPlay
         loop

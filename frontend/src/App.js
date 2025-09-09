@@ -23,6 +23,7 @@ import AdminLogin from "./Admin/Auth/AdminLogin";
 import GalleryUpload from "./Admin/GalleryUpload";
 import GalleryView from "./pages/GalleryView";
 import AdminGalleryView from "./Admin/AdminGalleryView";
+import ReviewPage from "./pages/ReviewPage";
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
           <Route path="/vexp" element={<ViewExperience />} />
           <Route path="/vski" element={<ViewSkills />} />
           <Route path="/vgal" element={<GalleryView />} />
-          
+          <Route path="/vrev" element={<ReviewPage />} />
+
           <Route path="/advp" element={<AdminViewProjects />} />
           <Route path="/adve" element={<AdminViewEducation />} />
           <Route path="/advex" element={<AdminViewExperiences />} />  
