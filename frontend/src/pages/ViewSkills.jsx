@@ -29,6 +29,7 @@ const ViewSkills = () => {
     return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    <div>
     <div className="relative min-h-screen w-full">
       <Header/>
       <video
@@ -78,8 +79,8 @@ const ViewSkills = () => {
           ))}
         </div>
       </div>
-      <Footer/>
-    </div>
+      
+    </div><Footer/></div>
   );
 };
 

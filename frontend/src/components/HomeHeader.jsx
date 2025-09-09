@@ -9,7 +9,8 @@ const HomeHeader = () => {
   const navItems = [
   
     { name: "Blogs", href: "/blo" },
-    { name: "Gallery", href: "/gal" },
+    { name: "Gallery", href: "/vgal" },
+     { name: "Reviews", href: "/vrev" },
     
   ];
 

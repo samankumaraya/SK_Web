@@ -18,13 +18,14 @@ const AdminHome = () => {
     { name: "Add Education", path: "/edu", icon: <PlusCircle /> },
     { name: "Add Skill", path: "/ski", icon: <PlusCircle /> },
     { name: "Add Experience", path: "/exp", icon: <PlusCircle /> },
-    { name: "Add Gallery", path: "/", icon: <PlusCircle /> },
+    { name: "Add Gallery", path: "/agal", icon: <PlusCircle /> },
     { name: "Add Blogs", path: "/", icon: <PlusCircle /> },
     { name: "All Projects", path: "/advp", icon: <FolderOpen /> },
     { name: "All Educations", path: "/adve", icon: <FolderOpen /> },
     { name: "All Skills", path: "/advs", icon: <FolderOpen /> },
     { name: "All Experience", path: "/advex", icon: <FolderOpen /> },
     { name: "All Charts", path: "/admin", icon: <FolderOpen /> },
+    { name: "All Gallery", path: "/advg", icon: <FolderOpen /> },
   ];
 
   return (
