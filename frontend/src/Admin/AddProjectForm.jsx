@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 
 const AddProjectForm = () => {
@@ -80,6 +82,7 @@ const AddProjectForm = () => {
   };
 
   return (
+    <div><AdminHeader/>
     <section className="relative w-full min-h-screen flex items-center justify-center">
      
       <video
@@ -95,9 +98,9 @@ const AddProjectForm = () => {
 
      
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
-
+<br></br>
       <div className="relative z-10 max-w-6xl w-full bg-white p-6 rounded-lg shadow-lg overflow-y-auto">
-        <h2 className="text-4xl text-blue-500 font-bold mb-4 text-center">Add Project</h2>
+       <br></br> <h2 className="text-4xl text-blue-500 font-bold mb-4 text-center">Add Project</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
@@ -248,7 +251,7 @@ const AddProjectForm = () => {
           </button>
         </form>
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 
