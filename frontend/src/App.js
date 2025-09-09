@@ -20,6 +20,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewHomePage from "./pages/NewHome";
 import AdminLogin from "./Admin/Auth/AdminLogin";
+import GalleryUpload from "./Admin/GalleryUpload";
+import GalleryView from "./pages/GalleryView";
 
 function App() {
   return (
@@ -37,7 +39,7 @@ function App() {
           <Route path="/vedu" element={<ViewEducation />} />
           <Route path="/vexp" element={<ViewExperience />} />
           <Route path="/vski" element={<ViewSkills />} />
-
+          <Route path="/vgal" element={<GalleryView />} />
           
           <Route path="/advp" element={<AdminViewProjects />} />
           <Route path="/adve" element={<AdminViewEducation />} />
@@ -47,6 +49,7 @@ function App() {
            <Route path="/footer" element={<Footer />} /> 
            <Route path="/nhome" element={<NewHomePage />} />
            <Route path="/ahome" element={<AdminHome />} />
+           <Route path="/agal" element={<GalleryUpload />} />
             
             <Route path="/admin" element={<AdminLogin />} />
 
