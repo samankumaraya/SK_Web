@@ -3,7 +3,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const GalleryView = () => {
+const AdminGalleryView = () => {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -84,4 +84,4 @@ const GalleryView = () => {
   );
 };
 
-export default GalleryView;
+export default AdminGalleryView;
