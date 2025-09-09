@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ViewProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -24,7 +26,7 @@ const ViewProjects = () => {
 
   return (
     <div className="relative min-h-screen w-full">
-      
+      <Header/>
       <video
         className="absolute inset-0 w-full h-full object-cover -z-10"
         autoPlay
@@ -196,6 +198,7 @@ const ViewProjects = () => {
           )}
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

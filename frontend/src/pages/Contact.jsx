@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +32,7 @@ const Contact = () => {
 
   return (
     <div>
+      <Header/>
       <section className="py-12 relative overflow-hidden" id="contact">
         
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -171,6 +174,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

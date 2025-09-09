@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ViewSkills = () => {
   const [skills, setSkills] = useState([]);
@@ -28,7 +30,7 @@ const ViewSkills = () => {
 
   return (
     <div className="relative min-h-screen w-full">
-      
+      <Header/>
       <video
         autoPlay
         loop
@@ -76,6 +78,7 @@ const ViewSkills = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
