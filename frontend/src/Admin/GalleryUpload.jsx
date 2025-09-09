@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const GalleryUpload = () => {
   const [image, setImage] = useState(null);
@@ -27,6 +29,7 @@ const GalleryUpload = () => {
   };
 
   return (
+    <div><AdminHeader/>
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900">
    
       <video
@@ -79,7 +82,7 @@ const GalleryUpload = () => {
           </p>
         )}
       </div>
-    </div>
+    </div><Footer/></div>
   );
 };
 

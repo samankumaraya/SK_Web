@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const EditProjectModal = ({ project, onClose, onUpdated }) => {
   const [formData, setFormData] = useState({
@@ -64,6 +66,8 @@ const EditProjectModal = ({ project, onClose, onUpdated }) => {
   if (!project) return null;
 
   return (
+    <div>
+      <AdminHeader/>
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
       <div className="bg-white p-6 rounded-lg w-full max-w-4xl max-h-screen overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">Edit Project</h2>
@@ -280,7 +284,7 @@ const EditProjectModal = ({ project, onClose, onUpdated }) => {
           </div>
         </form>
       </div>
-    </div>
+    </div><Footer/></div>
   );
 };
 

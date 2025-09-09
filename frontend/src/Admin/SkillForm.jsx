@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AdminHeader from "./compon/AdminHeader";
+import Footer from "../components/Footer";
 
 const SkillForm = () => {
   const [formData, setFormData] = useState({
@@ -45,6 +47,8 @@ const SkillForm = () => {
   };
 
   return (
+    <div>
+      <AdminHeader/>
     <section className="relative w-full min-h-screen flex items-center justify-center">
       
       <video
@@ -136,7 +140,7 @@ const SkillForm = () => {
           </div>
         </form>
       </div>
-    </section>
+    </section><Footer/></div>
   );
 };
 
