@@ -10,6 +10,7 @@ const HomeHeader = () => {
   
     { name: "Blogs", href: "/blo" },
     { name: "Gallery", href: "/vgal" },
+     { name: "Reviews", href: "/vrev" },
     
   ];
 
