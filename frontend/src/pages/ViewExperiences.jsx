@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ViewExperiences = () => {
   const [experiences, setExperiences] = useState([]);
@@ -28,6 +30,8 @@ const ViewExperiences = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
+    <div>
+      <Header/>
     <div className="relative min-h-screen w-full">
       
       <video
@@ -46,6 +50,8 @@ const ViewExperiences = () => {
 
       <section className="relative z-10">
         <div className="max-w-5xl mx-auto px-4 py-8">
+          
+          <br></br><br></br>
           <h2 className="text-5xl font-bold text-center mb-8 text-green-400 drop-shadow-lg">
             All Experiences
           </h2>
@@ -131,6 +137,8 @@ const ViewExperiences = () => {
           )}
         </div>
       </section>
+    </div>
+    <Footer/>
     </div>
   );
 };

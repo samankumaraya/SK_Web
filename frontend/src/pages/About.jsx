@@ -1,5 +1,7 @@
 import React from "react";
 import checkIcon from "../assets/icons/check.png";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const About = () => {
   const birthday = new Date("2000-08-01");
@@ -25,6 +27,7 @@ const About = () => {
 
   return (
     <div>
+      <Header/>
       <section
         id="about"
         className="flex flex-col items-center py-12 md:py-24 relative overflow-hidden"
@@ -102,6 +105,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
