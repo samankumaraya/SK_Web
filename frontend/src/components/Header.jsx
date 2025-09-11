@@ -7,14 +7,14 @@ const Header = () => {
   const location = useLocation(); 
 
   const navItems = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "/nhome" },
     { name: "About", href: "/abo" },
     { name: "Skills", href: "/vski" },
     { name: "Education", href: "/vedu" },
     { name: "Projects", href: "/vpro" },
     { name: "Experience", href: "/vexp" },
     { name: "Blogs", href: "https://www.blogger.com/u/1/blog/posts/4859028154673520238?bpli=1&pli=1" },
-    { name: "Gallery", href: "/gal" },
+    { name: "Gallery", href: "/vgal" },
     { name: "Contact", href: "/con" },
   ];
 
