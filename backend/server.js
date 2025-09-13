@@ -13,7 +13,7 @@ import experienceRoutes from "./routes/experienceRoutes.js";
 import skillRoutes from "./routes/skillRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
-import adminAuthRoutes from "./routes/adminAuth.js";
+
 import galleryRoutes from "./routes/galleryRoutes.js"; 
 import reviewRoutes from "./routes/reviewRoutes.js";
 
@@ -33,7 +33,7 @@ app.use("/api/experience", experienceRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactRoutes);
-app.use("/api/admin", adminAuthRoutes);
+
 app.use("/api/gallery", galleryRoutes); 
 app.use("/api/reviews", reviewRoutes);
  
