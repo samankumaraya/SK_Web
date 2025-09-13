@@ -48,30 +48,41 @@ const AdminLogin = () => {
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-4" autoComplete="off">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
-          >
-            Login
-          </button>
-        </form>
+        <form
+  onSubmit={handleLogin}
+  className="space-y-4"
+  autoComplete="off"
+>
+ 
+  <input type="text" name="fakeusernameremembered" style={{ display: 'none' }} />
+  <input type="password" name="fakepasswordremembered" style={{ display: 'none' }} />
+
+  <input
+    type="text"
+    placeholder="Username"
+    value={username}
+    onChange={(e) => setUsername(e.target.value)}
+    className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    required
+    autoComplete="off"
+  />
+  <input
+    type="password"
+    placeholder="Password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+    required
+    autoComplete="new-password"
+  />
+  <button
+    type="submit"
+    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+  >
+    Login
+  </button>
+</form>
+
       </div>
     </section>
   );

@@ -22,8 +22,8 @@ export const createReview = async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_RECEIVER, 
+      from: email,
+      to: process.env.EMAIL_USER, 
       subject: `New Review from ${name}`,
       html: `
         <h3>New Review Submitted</h3>
