@@ -2,6 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import HomeHeader from "../components/HomeHeader";
 import Footer from "../components/Footer";
+import aboutIcon from "../assets/icons/about.png";
+import contactIcon from "../assets/icons/contact.png";
+import skillsIcon from "../assets/icons/skills.png";
+import experienceIcon from "../assets/icons/experience.png";
+import educationIcon from "../assets/icons/education.png";
+import projectsIcon from "../assets/icons/projects.png";
+import starIcon from "../assets/icons/star.png";
+
 
 const NewHome = () => {
   const navigate = useNavigate();
@@ -85,18 +93,18 @@ const NewHome = () => {
   onClick={() => navigate("/vrev")}
   className="fixed bottom-4 left-4 z-50 text-white p-3 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-150"
 >
-  <img src="/icons/star.png" alt="Star" className="w-6 h-6" />
+  <img src={starIcon} alt="Star" className="w-6 h-6" />
 </button>
 
 
 
 
-          <BoxButton icon="/icons/about.png" label="ABOUT" positionClasses="absolute top-0 left-10" />
-          <BoxButton icon="/icons/contact.png" label="CONTACT" positionClasses="absolute top-0 right-10" />
-          <BoxButton icon="/icons/skills.png" label="SKILLS" positionClasses="absolute top-1/2 left-0 -translate-y-1/2" />
-          <BoxButton icon="/icons/experience.png" label="EXPERIENCE" positionClasses="absolute top-1/2 right-0 -translate-y-1/2" />
-          <BoxButton icon="/icons/education.png" label="EDUCATION" positionClasses="absolute bottom-0 left-10" />
-          <BoxButton icon="/icons/projects.png" label="PROJECTS" positionClasses="absolute bottom-0 right-10" />
+         <BoxButton icon={aboutIcon} label="ABOUT" positionClasses="absolute top-0 left-10" />
+<BoxButton icon={contactIcon} label="CONTACT" positionClasses="absolute top-0 right-10" />
+<BoxButton icon={skillsIcon} label="SKILLS" positionClasses="absolute top-1/2 left-0 -translate-y-1/2" />
+<BoxButton icon={experienceIcon} label="EXPERIENCE" positionClasses="absolute top-1/2 right-0 -translate-y-1/2" />
+<BoxButton icon={educationIcon} label="EDUCATION" positionClasses="absolute bottom-0 left-10" />
+<BoxButton icon={projectsIcon} label="PROJECTS" positionClasses="absolute bottom-0 right-10" />
         </div>
 
      
@@ -116,12 +124,12 @@ const NewHome = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mt-6">
-            <BoxButton icon="/icons/about.png" label="ABOUT" />
-            <BoxButton icon="/icons/contact.png" label="CONTACT" />
-            <BoxButton icon="/icons/skills.png" label="SKILLS" />
-            <BoxButton icon="/icons/experience.png" label="EXPERIENCE" />
-            <BoxButton icon="/icons/education.png" label="EDUCATION" />
-            <BoxButton icon="/icons/projects.png" label="PROJECTS" />
+           <BoxButton icon={aboutIcon} label="ABOUT" />
+<BoxButton icon={contactIcon} label="CONTACT" />
+<BoxButton icon={skillsIcon} label="SKILLS" />
+<BoxButton icon={experienceIcon} label="EXPERIENCE" />
+<BoxButton icon={educationIcon} label="EDUCATION" />
+<BoxButton icon={projectsIcon} label="PROJECTS" />
           </div>
         </div>
       </section>
