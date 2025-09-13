@@ -13,9 +13,11 @@ import experienceRoutes from "./routes/experienceRoutes.js";
 import skillRoutes from "./routes/skillRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
-
 import galleryRoutes from "./routes/galleryRoutes.js"; 
 import reviewRoutes from "./routes/reviewRoutes.js";
+
+
+import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
 
@@ -28,15 +30,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+
 app.use("/api/education", educationRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactRoutes);
-
-app.use("/api/gallery", galleryRoutes); 
+app.use("/api/gallery", galleryRoutes);
 app.use("/api/reviews", reviewRoutes);
- 
+
+
+app.use("/api/admin", adminRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("🚀 Backend API is running...");
