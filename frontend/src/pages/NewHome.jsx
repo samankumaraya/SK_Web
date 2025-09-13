@@ -93,7 +93,7 @@ const NewHome = () => {
   onClick={() => navigate("/vrev")}
   className="fixed bottom-4 left-4 z-50 text-white p-3 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-150"
 >
-  <img src={starIcon} alt="Star" className="w-6 h-6" />
+  <img src="/icons/star.png" alt="Star" className="w-6 h-6" />
 </button>
 
 
@@ -109,13 +109,13 @@ const NewHome = () => {
 
      
         <div className="md:hidden flex flex-col items-center gap-4 px-4 py-6">
-        <br></br> <br></br> <h1 className="text-3xl font-bold text-center">
+
             Hi, I’m <span className="text-blue-500">Saman Kumara</span>
           </h1>
           <p className="text-gray-700 text-sm text-center">
             Software Engineer | Full-Stack Developer | QA Engineer
           </p>
-          <div className="w-64 h-64 rounded-lg overflow-hidden ">
+
             <img
               src="/your-profile.png"
               alt="Saman Kumara"

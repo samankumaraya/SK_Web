@@ -10,4 +10,8 @@ router.post("/upload", upload.single("image"), galleryController.uploadImage);
 
 router.get("/", galleryController.getImages);
 
+
+router.delete("/:id", galleryController.deleteImage);
+
+
 export default router;

@@ -48,10 +48,10 @@ const ViewEducation = () => {
 
      
       <div className="absolute inset-0 bg-black bg-opacity-40 -z-10"></div>
-
+<br></br> <br></br>
       
       <div className="p-6 relative z-10">
-        <h1 className="text-5xl text-green-400 font-bold mb-4 text-center drop-shadow-lg">
+        <h1 className="text-5xl text-yellow-400 font-bold mb-4 text-center drop-shadow-lg">
           Education
         </h1>
 
