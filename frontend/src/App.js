@@ -25,6 +25,9 @@ import GalleryView from "./pages/GalleryView";
 import AdminGalleryView from "./Admin/AdminGalleryView";
 import ReviewPage from "./pages/ReviewPage";
 
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+
 function App() {
   return (
     <Router>
@@ -54,7 +57,8 @@ function App() {
            <Route path="/nhome" element={<NewHomePage />} />
            <Route path="/ahome" element={<AdminHome />} />
            <Route path="/agal" element={<GalleryUpload />} />
-            
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="admin/dashboard" element={<AdminDashboard />} />
            
 
 
