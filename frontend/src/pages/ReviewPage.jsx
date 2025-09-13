@@ -66,21 +66,20 @@ const ReviewPage = () => {
   };
 
 
-const renderStars = () => {
+const renderStars = (count = form.stars) => {
   return [1, 2, 3, 4, 5].map((num) => (
-    <button
+    <span
       key={num}
-      type="button"
-      onClick={() => setForm(prev => ({ ...prev, stars: num }))}
-      className={`text-3xl transition-colors focus:outline-none ${
-        num <= form.stars ? "text-yellow-400" : "text-gray-300"
-      } hover:text-yellow-500`}
+      className={`text-3xl transition-colors ${
+        num <= count ? "text-yellow-400" : "text-gray-300"
+      }`}
       aria-label={`${num} star${num > 1 ? "s" : ""}`}
     >
       ★
-    </button>
+    </span>
   ));
 };
+
 
 
   return (
