@@ -53,9 +53,9 @@ const Contact = () => {
         </div>
         
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          
+          <br></br>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold">Contact</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl text-yellow-300 font-bold">Contact</h2>
             
           </div>
 

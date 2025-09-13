@@ -42,8 +42,8 @@ const ViewProjects = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50 -z-10"></div>
 
       <section className="relative z-10">
-        <div className="p-6">
-          <h1 className="text-4xl font-extrabold text-center mb-8 text-green-400 drop-shadow-lg">
+        <div className="p-6"><br></br><br></br>
+          <h1 className="text-5xl font-extrabold text-center mb-8 text-yellow-300 drop-shadow-lg">
             All Projects
           </h1>
 

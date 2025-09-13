@@ -52,7 +52,7 @@ const ViewExperiences = () => {
         <div className="max-w-5xl mx-auto px-4 py-8">
           
           <br></br><br></br>
-          <h2 className="text-5xl font-bold text-center mb-8 text-green-400 drop-shadow-lg">
+          <h2 className="text-5xl font-bold text-center mb-8 text-yellow-300 drop-shadow-lg">
             All Experiences
           </h2>
 

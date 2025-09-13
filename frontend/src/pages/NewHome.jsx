@@ -2,6 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import HomeHeader from "../components/HomeHeader";
 import Footer from "../components/Footer";
+import aboutIcon from "../assets/icons/about.png";
+import contactIcon from "../assets/icons/contact.png";
+import skillsIcon from "../assets/icons/skills.png";
+import experienceIcon from "../assets/icons/experience.png";
+import educationIcon from "../assets/icons/education.png";
+import projectsIcon from "../assets/icons/projects.png";
+import starIcon from "../assets/icons/star.png";
+
 
 const NewHome = () => {
   const navigate = useNavigate();
@@ -58,23 +66,57 @@ const NewHome = () => {
             </div>
           </div>
 
-          <BoxButton icon="/icons/about.png" label="ABOUT" positionClasses="absolute top-0 left-10" />
-          <BoxButton icon="/icons/contact.png" label="CONTACT" positionClasses="absolute top-0 right-10" />
-          <BoxButton icon="/icons/skills.png" label="SKILLS" positionClasses="absolute top-1/2 left-0 -translate-y-1/2" />
-          <BoxButton icon="/icons/experience.png" label="EXPERIENCE" positionClasses="absolute top-1/2 right-0 -translate-y-1/2" />
-          <BoxButton icon="/icons/education.png" label="EDUCATION" positionClasses="absolute bottom-0 left-10" />
-          <BoxButton icon="/icons/projects.png" label="PROJECTS" positionClasses="absolute bottom-0 right-10" />
+
+<div className="hidden md:flex flex-col items-center gap-4 fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+  <a href="https://www.linkedin.com/in/s-kumara-80304a229/" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/linkedin.png" alt="LinkedIn" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+  <a href="https://wa.me/+94766199583" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+  <a href="https://web.facebook.com/saman.kumara.777029" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/facebook.png" alt="Facebook" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+  <a href="https://www.instagram.com/kumara9476/" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/instagram.png" alt="Instagram" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/youtube.png" alt="YouTube" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+  <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/twitter.png" alt="Twitter" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
+  </a>
+</div>
+
+
+   
+<button
+  onClick={() => navigate("/vrev")}
+  className="fixed bottom-4 left-4 z-50 text-white p-3 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-150"
+>
+  <img src={starIcon} alt="Star" className="w-6 h-6" />
+</button>
+
+
+
+
+         <BoxButton icon={aboutIcon} label="ABOUT" positionClasses="absolute top-0 left-10" />
+<BoxButton icon={contactIcon} label="CONTACT" positionClasses="absolute top-0 right-10" />
+<BoxButton icon={skillsIcon} label="SKILLS" positionClasses="absolute top-1/2 left-0 -translate-y-1/2" />
+<BoxButton icon={experienceIcon} label="EXPERIENCE" positionClasses="absolute top-1/2 right-0 -translate-y-1/2" />
+<BoxButton icon={educationIcon} label="EDUCATION" positionClasses="absolute bottom-0 left-10" />
+<BoxButton icon={projectsIcon} label="PROJECTS" positionClasses="absolute bottom-0 right-10" />
         </div>
 
      
         <div className="md:hidden flex flex-col items-center gap-4 px-4 py-6">
-
+        <br></br> <br></br> <h1 className="text-3xl font-bold text-center">
             Hi, I’m <span className="text-blue-500">Saman Kumara</span>
           </h1>
           <p className="text-gray-700 text-sm text-center">
             Software Engineer | Full-Stack Developer | QA Engineer
           </p>
-
+          <div className="w-64 h-64 rounded-lg overflow-hidden ">
             <img
               src="/your-profile.png"
               alt="Saman Kumara"
@@ -83,12 +125,12 @@ const NewHome = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mt-6">
-            <BoxButton icon="/icons/about.png" label="ABOUT" />
-            <BoxButton icon="/icons/contact.png" label="CONTACT" />
-            <BoxButton icon="/icons/skills.png" label="SKILLS" />
-            <BoxButton icon="/icons/experience.png" label="EXPERIENCE" />
-            <BoxButton icon="/icons/education.png" label="EDUCATION" />
-            <BoxButton icon="/icons/projects.png" label="PROJECTS" />
+           <BoxButton icon={aboutIcon} label="ABOUT" />
+<BoxButton icon={contactIcon} label="CONTACT" />
+<BoxButton icon={skillsIcon} label="SKILLS" />
+<BoxButton icon={experienceIcon} label="EXPERIENCE" />
+<BoxButton icon={educationIcon} label="EDUCATION" />
+<BoxButton icon={projectsIcon} label="PROJECTS" />
           </div>
         </div>
       </section>
