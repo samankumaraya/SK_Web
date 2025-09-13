@@ -58,39 +58,6 @@ const NewHome = () => {
             </div>
           </div>
 
-{/* Social Media Icons */}
-<div className="hidden md:flex flex-col items-center gap-4 fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
-  <a href="https://www.linkedin.com/in/s-kumara-80304a229/" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
-  </a>
-  <a href="https://wa.me/+94766199583" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-8 h-8" />
-  </a>
-  <a href="https://web.facebook.com/saman.kumara.777029" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/facebook.png" alt="Facebook" className="w-8 h-8" />
-  </a>
-  <a href="https://www.instagram.com/kumara9476/" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/instagram.png" alt="Instagram" className="w-8 h-8" />
-  </a>
-  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/youtube.png" alt="YouTube" className="w-8 h-8" />
-  </a>
-  <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/twitter.png" alt="Twitter" className="w-8 h-8" />
-  </a>
-</div>
-
-   
-<button
-  onClick={() => navigate("/vrev")}
-  className="fixed bottom-4 left-4 z-50 text-white p-3 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-150"
->
-  <img src="/icons/star.png" alt="Star" className="w-6 h-6" />
-</button>
-
-
-
-
           <BoxButton icon="/icons/about.png" label="ABOUT" positionClasses="absolute top-0 left-10" />
           <BoxButton icon="/icons/contact.png" label="CONTACT" positionClasses="absolute top-0 right-10" />
           <BoxButton icon="/icons/skills.png" label="SKILLS" positionClasses="absolute top-1/2 left-0 -translate-y-1/2" />
@@ -101,13 +68,13 @@ const NewHome = () => {
 
      
         <div className="md:hidden flex flex-col items-center gap-4 px-4 py-6">
-        <br></br> <br></br> <h1 className="text-3xl font-bold text-center">
+
             Hi, I’m <span className="text-blue-500">Saman Kumara</span>
           </h1>
           <p className="text-gray-700 text-sm text-center">
             Software Engineer | Full-Stack Developer | QA Engineer
           </p>
-          <div className="w-64 h-64 rounded-lg overflow-hidden ">
+
             <img
               src="/your-profile.png"
               alt="Saman Kumara"
