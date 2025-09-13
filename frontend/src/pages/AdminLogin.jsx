@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState(""); // <-- rename error -> message
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -13,22 +13,67 @@ const AdminLogin = () => {
     try {
       const res = await axios.post("http://localhost:5000/api/admin/login", { username, password });
       localStorage.setItem("token", res.data.token);
-      navigate("/admin/dashboard");
+      setMessage("Login successful! Redirecting...");
+      setTimeout(() => navigate("/admin/dashboard"), 500); // optional delay for user feedback
     } catch (err) {
-      setError(err.response.data.error);
+      setMessage(err.response?.data?.error || "Login failed");
     }
   };
 
   return (
-    <div>
-      <h2>Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button type="submit">Login</button>
-      </form>
-      {error && <p>{error}</p>}
-    </div>
+    <section className="relative w-full min-h-screen flex items-center justify-center">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/bav.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
+
+      <div className="relative z-10 w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Admin Login</h2>
+
+        {message && (
+          <div
+            className={`mb-4 text-center ${
+              message.includes("successful") ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {message}
+          </div>
+        )}
+
+        <form onSubmit={handleLogin} className="space-y-4" autoComplete="off">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
