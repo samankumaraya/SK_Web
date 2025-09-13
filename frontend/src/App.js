@@ -19,7 +19,7 @@ import AdminViewSkills from "./Admin/AdminViewSkills";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewHomePage from "./pages/NewHome";
-import AdminLogin from "./Admin/Auth/AdminLogin";
+
 import GalleryUpload from "./Admin/GalleryUpload";
 import GalleryView from "./pages/GalleryView";
 import AdminGalleryView from "./Admin/AdminGalleryView";
@@ -55,7 +55,7 @@ function App() {
            <Route path="/ahome" element={<AdminHome />} />
            <Route path="/agal" element={<GalleryUpload />} />
             
-            <Route path="/admin" element={<AdminLogin />} />
+           
 
 
       </Routes>
