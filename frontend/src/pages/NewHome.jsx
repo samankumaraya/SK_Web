@@ -66,27 +66,28 @@ const NewHome = () => {
             </div>
           </div>
 
-{/* Social Media Icons */}
+
 <div className="hidden md:flex flex-col items-center gap-4 fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
   <a href="https://www.linkedin.com/in/s-kumara-80304a229/" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
+    <img src="/icons/linkedin.png" alt="LinkedIn" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
   <a href="https://wa.me/+94766199583" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-8 h-8" />
+    <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
   <a href="https://web.facebook.com/saman.kumara.777029" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/facebook.png" alt="Facebook" className="w-8 h-8" />
+    <img src="/icons/facebook.png" alt="Facebook" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
   <a href="https://www.instagram.com/kumara9476/" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/instagram.png" alt="Instagram" className="w-8 h-8" />
+    <img src="/icons/instagram.png" alt="Instagram" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
   <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/youtube.png" alt="YouTube" className="w-8 h-8" />
+    <img src="/icons/youtube.png" alt="YouTube" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
   <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-    <img src="/icons/twitter.png" alt="Twitter" className="w-8 h-8" />
+    <img src="/icons/twitter.png" alt="Twitter" className="w-8 h-8 transition-transform duration-200 hover:scale-125" />
   </a>
 </div>
+
 
    
 <button

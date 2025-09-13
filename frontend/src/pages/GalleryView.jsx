@@ -37,9 +37,9 @@ const GalleryView = () => {
         Your browser does not support the video tag.
       </video>
 
-      
+      <br></br><br></br>
       <div className="relative max-w-6xl mx-auto p-6 bg-white bg-opacity-80 rounded-lg shadow-lg mt-10">
-        <h2 className="text-3xl font-semibold mb-8 text-center text-gray-800">Gallery</h2>
+        <h2 className="text-5xl font-semibold mb-8 text-center text-green-800">Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {images.map((img) => (
             <img

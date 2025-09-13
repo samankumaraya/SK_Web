@@ -46,9 +46,9 @@ const ViewSkills = () => {
      
       <div className="absolute inset-0 bg-black/40 -z-10"></div>
 
-      
+      <br></br><br></br>
       <div className="max-w-6xl mx-auto p-6 relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center text-white">
+        <h2 className="text-5xl font-bold mb-8 text-center text-yellow-300">
           My Skills
         </h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
