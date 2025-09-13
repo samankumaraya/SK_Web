@@ -25,6 +25,7 @@ const ViewProjects = () => {
   if (loading) return <p className="text-center mt-10 text-blue-500">Loading projects...</p>;
 
   return (
+    <div>
     <div className="relative min-h-screen w-full">
       <Header/>
       <video
@@ -198,7 +199,9 @@ const ViewProjects = () => {
           )}
         </div>
       </section>
-      <Footer/>
+      
+    </div>
+    <Footer/>
     </div>
   );
 };
