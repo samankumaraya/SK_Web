@@ -5,28 +5,31 @@ import EducationForm from "./Admin/EducationForm";
 import ExperienceForm from "./Admin/ExperienceForm";
 import SkillForm from "./Admin/SkillForm";
 import AddProjectForm from "./Admin/AddProjectForm";
+import AdminHome from "./Admin/AdminHome";
+import AdminViewEducation from "./Admin/AdminViewEducation";
+import AdminViewProjects from "./Admin/AdminViewProjects";
+import AdminViewExperiences from "./Admin/AdminViewExperiences";
+import AdminViewSkills from "./Admin/AdminViewSkills";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import ViewProjects from "./pages/ViewProjects";
 import ViewEducation from "./pages/ViewEducation";
 import ViewExperience from "./pages/ViewExperiences";
 import ViewSkills from "./pages/ViewSkills";
-import AdminHome from "./Admin/AdminHome";
-import AdminViewEducation from "./Admin/AdminViewEducation";
-import AdminViewProjects from "./Admin/AdminViewProjects";
-import AdminViewExperiences from "./Admin/AdminViewExperiences";
-import AdminViewSkills from "./Admin/AdminViewSkills";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewHomePage from "./pages/NewHome";
 
-import GalleryUpload from "./Admin/GalleryUpload";
-import GalleryView from "./pages/GalleryView";
-import AdminGalleryView from "./Admin/AdminGalleryView";
-import ReviewPage from "./pages/ReviewPage";
 
+import GalleryView from "./pages/GalleryView";
+
+import ReviewPage from "./pages/ReviewPage";
+{/*
+import AdminGalleryView from "./Admin/AdminGalleryView";
+import GalleryUpload from "./Admin/GalleryUpload";
 import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./pages/AdminDashboard"; */}
 
 function App() {
   return (
@@ -60,7 +63,7 @@ function App() {
            <Route path="/footer" element={<Footer />} /> 
            <Route path="/nhome" element={<NewHomePage />} />
           
-           
+           {/*   saman*/}
 
 
       </Routes>
