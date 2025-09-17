@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminHeader from "./compon/AdminHeader";
 import Footer from "../components/Footer";
-import { FaTrash } from "react-icons/fa"; 
+import { FaTrash } from "react-icons/fa";
 
 const AdminGalleryView = () => {
   const [images, setImages] = useState([]);
@@ -10,7 +10,7 @@ const AdminGalleryView = () => {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  
+  // Fetch images from backend
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -26,27 +26,27 @@ const AdminGalleryView = () => {
     fetchImages();
   }, []);
 
-
   const closeModal = () => setSelectedImage(null);
   const closeDeleteConfirm = () => setDeleteConfirm(null);
 
-
   const handleDelete = async (id) => {
-    try {
-      const res = await axios.delete(`http://localhost:5000/api/gallery/${id}`);
-      console.log(res.data);
-      
-      setImages((prevImages) => prevImages.filter((img) => img._id !== id));
-      closeDeleteConfirm();
-    } catch (err) {
-      console.error("Delete error:", err);
-    }
-  };
+  console.log("Deleting image with id:", id);
+  try {
+    const res = await axios.delete(`http://localhost:5000/api/gallery/${id}`);
+    console.log("Delete response:", res.data);
+    setImages((prevImages) => prevImages.filter((img) => img._id !== id));
+    closeDeleteConfirm();
+  } catch (err) {
+    console.error("Delete error:", err);
+  }
+};
 
   return (
     <div>
       <AdminHeader />
+
       <div className="relative min-h-screen">
+        {/* Background Video */}
         <video
           autoPlay
           loop
@@ -58,8 +58,11 @@ const AdminGalleryView = () => {
           Your browser does not support the video tag.
         </video>
 
+        {/* Main Content */}
         <div className="relative max-w-6xl mx-auto p-6 bg-white bg-opacity-80 rounded-lg shadow-lg mt-10">
-          <h2 className="text-3xl font-semibold mb-8 text-center text-gray-800">Gallery</h2>
+          <h2 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+            Gallery
+          </h2>
 
           {loading ? (
             <p className="text-center text-gray-600">Loading images...</p>
@@ -67,7 +70,7 @@ const AdminGalleryView = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {images.map((img) => (
                 <div key={img._id} className="relative group">
-                 
+                  {/* Image */}
                   <img
                     src={`http://localhost:5000/uploads/images/Gallery/${img.filename}`}
                     alt={img.originalName}
@@ -76,10 +79,10 @@ const AdminGalleryView = () => {
                     onClick={() => setSelectedImage(img)}
                   />
 
-                 
+                  {/* Delete Button */}
                   <button
                     onClick={() => setDeleteConfirm(img)}
-                    className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition"
                     title="Delete Image"
                   >
                     <FaTrash />
@@ -90,7 +93,7 @@ const AdminGalleryView = () => {
           )}
         </div>
 
-       
+        {/* Image Modal */}
         {selectedImage && (
           <div
             className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -116,7 +119,7 @@ const AdminGalleryView = () => {
           </div>
         )}
 
-       
+        {/* Delete Confirmation Modal */}
         {deleteConfirm && (
           <div
             className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -146,6 +149,7 @@ const AdminGalleryView = () => {
           </div>
         )}
       </div>
+
       <Footer />
     </div>
   );
