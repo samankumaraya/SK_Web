@@ -65,27 +65,23 @@ const ReviewPage = () => {
     }
   };
 
-
-const renderStars = () => {
-  return [1, 2, 3, 4, 5].map((num) => (
-    <button
-      key={num}
-      type="button"
-      onClick={() => setForm(prev => ({ ...prev, stars: num }))}
-      className={`text-3xl transition-colors focus:outline-none ${
-        num <= form.stars ? "text-yellow-400" : "text-gray-300"
-      } hover:text-yellow-500`}
-      aria-label={`${num} star${num > 1 ? "s" : ""}`}
-    >
-      ★
-    </button>
-  ));
-};
-
+  const renderStars = (count = form.stars, clickable = true) => {
+    return [1, 2, 3, 4, 5].map((num) => (
+      <span
+        key={num}
+        onClick={clickable ? () => handleStarClick(num) : undefined}
+        className={`text-3xl transition-colors cursor-pointer ${
+          num <= count ? "text-yellow-400" : "text-gray-300"
+        }`}
+        aria-label={`${num} star${num > 1 ? "s" : ""}`}
+      >
+        ★
+      </span>
+    ));
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-     
       <video
         autoPlay
         loop
@@ -99,11 +95,9 @@ const renderStars = () => {
 
       <Header />
 
-      
       <br></br>
       <br></br>
       <div className="max-w-5xl mx-auto p-8 relative z-10">
-       
         <form
           onSubmit={handleSubmit}
           className="mb-10 p-4 bg-white/90 backdrop-blur-md rounded-lg shadow-md w-full"
@@ -115,7 +109,6 @@ const renderStars = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
             <div>
               <label
                 className="block mb-1 font-medium text-gray-700"
@@ -134,7 +127,6 @@ const renderStars = () => {
               />
             </div>
 
-           
             <div>
               <label
                 className="block mb-1 font-medium text-gray-700"
@@ -153,7 +145,6 @@ const renderStars = () => {
               />
             </div>
 
-           
             <div>
               <label className="block mb-1 font-medium text-gray-700">
                 Rating
@@ -161,7 +152,6 @@ const renderStars = () => {
               <div>{renderStars()}</div>
             </div>
 
-           
             <div className="md:col-span-2">
               <label
                 className="block mb-1 font-medium text-gray-700"
@@ -204,53 +194,51 @@ const renderStars = () => {
           </button>
         </form>
 
-       
-       <div>
-  <h2 className="text-2xl font-semibold mb-6 text-white text-center">
-    All Reviews
-  </h2>
+        <div>
+          <h2 className="text-2xl font-semibold mb-6 text-white text-center">
+            All Reviews
+          </h2>
 
-  {reviews.length === 0 && (
-    <p className="text-center text-gray-500">
-      No reviews yet. Be the first to review!
-    </p>
-  )}
-  <ul className="space-y-6">
-    {reviews.map((review) => (
-      <li
-        key={review._id}
-        className="p-4 border border-gray-200 rounded-md bg-white/90 backdrop-blur-sm shadow-sm"
-      >
-        <div className="flex items-center justify-between mb-2">
-          <div>
-            <p className="font-semibold text-gray-800">{review.name}</p>
-            <p className="text-yellow-400">
-              {"★".repeat(review.stars)}
-              {"☆".repeat(5 - review.stars)}
+          {reviews.length === 0 && (
+            <p className="text-center text-gray-500">
+              No reviews yet. Be the first to review!
             </p>
-          </div>
+          )}
+          <ul className="space-y-6">
+            {reviews.map((review) => (
+              <li
+                key={review._id}
+                className="p-4 border border-gray-200 rounded-md bg-white/90 backdrop-blur-sm shadow-sm"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <p className="font-semibold text-gray-800">{review.name}</p>
+                    <p className="text-yellow-400">
+                      {"★".repeat(review.stars)}
+                      {"☆".repeat(5 - review.stars)}
+                    </p>
+                  </div>
 
-         
-          <button
-            onClick={() => setSelectedReview(review)}
-            className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-          >
-            View
-          </button>
+                  <button
+                    onClick={() => setSelectedReview(review)}
+                    className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                  >
+                    View
+                  </button>
+                </div>
+
+                <p className="text-gray-700 mb-2 line-clamp-2">
+                  {review.message}
+                </p>
+                <p className="text-xs text-gray-400">
+                  {new Date(review.createdAt).toLocaleDateString()}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <p className="text-gray-700 mb-2 line-clamp-2">{review.message}</p>
-        <p className="text-xs text-gray-400">
-          {new Date(review.createdAt).toLocaleDateString()}
-        </p>
-      </li>
-    ))}
-  </ul>
-</div>
-
       </div>
 
-    
       {selectedReview && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
           <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
@@ -271,7 +259,7 @@ const renderStars = () => {
             </p>
             <p>
               <span className="font-medium">Rating:</span>{" "}
-              {renderStars(selectedReview.stars)}
+              {renderStars(selectedReview.stars, false)}
             </p>
             <p>
               <span className="font-medium">Message:</span>{" "}

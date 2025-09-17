@@ -34,10 +34,10 @@ function App() {
      
       <Routes>
         <Route path="/" element={<NewHomePage />} />
-         <Route path="/edu" element={<EducationForm />} />
+      {/*   <Route path="/edu" element={<EducationForm />} />
           <Route path="/exp" element={<ExperienceForm />} />
           <Route path="/ski" element={<SkillForm />} />
-          <Route path="/pro" element={<AddProjectForm />} />
+          <Route path="/pro" element={<AddProjectForm />} />*/}
           <Route path="/con" element={<Contact />} />
           <Route path="/abo" element={<About />} />
           <Route path="/vpro" element={<ViewProjects />} />
@@ -47,18 +47,19 @@ function App() {
           <Route path="/vgal" element={<GalleryView />} />
           <Route path="/vrev" element={<ReviewPage />} />
 
-          <Route path="/advp" element={<AdminViewProjects />} />
+        {/*  <Route path="/advp" element={<AdminViewProjects />} />
           <Route path="/adve" element={<AdminViewEducation />} />
           <Route path="/advex" element={<AdminViewExperiences />} />  
           <Route path="/advs" element={<AdminViewSkills />} /> 
-          <Route path="/advg" element={<AdminGalleryView />} /> 
-           <Route path="/header" element={<Header />} />
-           <Route path="/footer" element={<Footer />} /> 
-           <Route path="/nhome" element={<NewHomePage />} />
            <Route path="/ahome" element={<AdminHome />} />
            <Route path="/agal" element={<GalleryUpload />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/advg" element={<AdminGalleryView />} /> */}
+           <Route path="/header" element={<Header />} />
+           <Route path="/footer" element={<Footer />} /> 
+           <Route path="/nhome" element={<NewHomePage />} />
+          
            
 
 

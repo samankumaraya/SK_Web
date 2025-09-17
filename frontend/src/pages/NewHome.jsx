@@ -53,7 +53,7 @@ const NewHome = () => {
             </h1>
 
             <p className="text-gray-700 text-sm md:text-lg">
-              Software Engineer | Full-Stack Developer | QA Engineer
+              Software Engineer | Full-Stack Developer 
             </p>
 
        

@@ -65,7 +65,7 @@ const About = () => {
               
               <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
   <img
-    src="/your-profile.png"
+    src="/myabout.png"
     alt="Profile"
     className="rounded-xl shadow-xl w-48 sm:w-64 md:w-80 object-cover border-4 border-gray-200"
   />
